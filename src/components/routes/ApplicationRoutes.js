@@ -8,7 +8,7 @@ export const ApplicationRoutes = () => {
         <Routes>
             <Route path="/" element={ <Outlet /> } >
                 <Route path="search" element={ <SearchPage />} />
-                <Route path="airports/:airportIcao" element={ <AirportPage />} />
+                <Route path="airports/:airportId" element={ <AirportPage />} />
                 <Route path="profile" element={ <Profile />} />
             </Route>
         </Routes>

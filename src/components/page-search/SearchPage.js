@@ -5,7 +5,7 @@ import { SearchResultsList } from "./SearchResultsList"
 
 export const SearchPage = () => {
     
-    const [results, setResults] = useState([]) // displays array of airports matching 
+    const [results, setResults] = useState([])
     const [selection, setSelection] = useState({})
     const [searchBarText, setSearchBarText] = useState("")
     
@@ -18,13 +18,13 @@ export const SearchPage = () => {
         <div className="search__bar">
             <SearchBar 
                 setResults={ setResults } 
-                searchBarText={searchBarText}
-                selection={selection} />
+                searchBarText={ searchBarText }
+                selection={ selection } />
             <SearchResultsList 
                 results={ results } 
-                setSearchBarText={setSearchBarText} 
-                setSelection={setSelection} 
-                setResults={setResults}/>
+                setSearchBarText={ setSearchBarText } 
+                setSelection={ setSelection } 
+                setResults={ setResults }/>
         </div>
     </>
     )

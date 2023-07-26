@@ -5,10 +5,10 @@ export const SearchResultsList = ({results, setSearchBarText, setSelection, setR
         const textToDisplay = `${result.ARPT_NAME} (${result.ARPT_ID})`
         // alert(`clicked on ${result.ARPT_NAME}`)
         setSelection(result) // sets selection to airport object
-        setSearchBarText(textToDisplay) // sets searchBarText to airport's name
+        setSearchBarText(textToDisplay) // sets text displayed in search bar to selected airport's name + ID
         setResults([]) // resets results list to empty
     }
-    
+
     return (
         <div className="searchBar__results">
             {
@@ -20,4 +20,5 @@ export const SearchResultsList = ({results, setSearchBarText, setSelection, setR
             }
         </div>
     )
+
 }

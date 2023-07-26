@@ -6,7 +6,7 @@ export const SearchBar = ({ setResults, searchBarText, selection }) => {
     
     const [input, setInput] = useState("")
 
-    const fetchData = (value) => {
+    const fetchResults = (value) => {
         fetch("http://localhost:8088/airports")
             .then((res) => res.json())
             .then((data) => {
@@ -21,7 +21,7 @@ export const SearchBar = ({ setResults, searchBarText, selection }) => {
 
     const handleChange = (value) => {
         setInput(value)
-        fetchData(value)
+        fetchResults(value)
     }
 
     return (
