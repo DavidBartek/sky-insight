@@ -10,32 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-  font-style: italic;
-  font-weight: 900;
-  text-align: center;
-}
-
-h2 {
-  font-style: italic;
-  font-weight: 400;
-  text-align: center;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-* {
-  animation: fadeIn 1s ease-in-out;   
-}
-
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
 }

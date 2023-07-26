@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { AirportHeader } from "./header-info/AirportHeader"
+import { AirportComments } from "./comments/AirportComments"
 
 export const AirportPage = () => {
     
@@ -9,6 +10,7 @@ export const AirportPage = () => {
     return (
         <>
             <AirportHeader airportId={airportId}/>
+            <AirportComments airportId={airportId}/>
         </>
     )
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { fetchAirportInfo } from "../../../DataAccess"
-import { FaDirections } from "react-icons/fa"
+import "./AirportHeader.css"
 
 export const AirportHeader = ({airportId}) => {
 
@@ -56,11 +56,11 @@ export const AirportHeader = ({airportId}) => {
     } else {
         return (
             <div className="airport__header">
-                <h2>{airportNameString}</h2>
-                <h2>({airportData.icao_id || airportData.faa_id})</h2>
-                <h4>{locationString}</h4>
-                <h4>Coordinates: {coordinatesString}</h4>
-                <h4>Elevation: {airportData.elevation}' MSL (Pattern Altitude: {airportData.elevation + 1000}' MSL)</h4>
+                <h2 className="airport__name">{airportNameString}</h2>
+                <h2 className="airport__id">({airportData.icao_id || airportData.faa_id})</h2>
+                <h4 className="airport__location">{locationString}</h4>
+                <h4 className="airport__coordinates">Coordinates: {coordinatesString}</h4>
+                <h4 className="airport__elevation">Elevation: {airportData.elevation}' MSL (Pattern Altitude: {airportData.elevation + 1000}' MSL)</h4>
             </div>
         )
     }
