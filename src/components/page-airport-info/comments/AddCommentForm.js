@@ -7,6 +7,7 @@ import { useState } from "react"
 import { AddCommentStar } from "./AddCommentStar"
 import { AddComment } from "./AddComment"
 import { postComment } from "../../../DataAccess"
+import { useEffect } from "react"
 
 export const AddCommentForm = ({faaId}) => {
     
@@ -17,6 +18,13 @@ export const AddCommentForm = ({faaId}) => {
 
     const localSkyInsightUser = localStorage.getItem("skyinsight_user")
     const userObject = JSON.parse(localSkyInsightUser)
+
+    useEffect(
+        () => {
+
+        },
+        [newComment]
+    )
 
     const handleSubmitClick = (e) => {
         e.preventDefault()
@@ -34,9 +42,11 @@ export const AddCommentForm = ({faaId}) => {
 
         postComment(commentObj, faaId)
 
-        // return fetch function, defined in DataAccess. Pass in comment obj.
+        const copy = {...newComment}
+        copy.comment = ""
+        copy.rating = 0
+        updateComment(copy)
 
-        // .then call updateComment,  resetting newComment (does there need to be a useEffect watching for this?)
     }
     
     return (

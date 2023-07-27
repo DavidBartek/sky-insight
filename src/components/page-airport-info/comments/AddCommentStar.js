@@ -22,7 +22,7 @@ export const AddCommentStar = ({newComment, updateComment}) => {
                         <button
                             type="button"
                             key={index}
-                            className={index <= (hover || newComment.rating) ? "starOn" : "starOff"}
+                            className={index <= (hover || newComment.rating) ? "starOnClick" : "starOffClick"}
                             onClick={() => handleClick(index)}
                             onMouseEnter={() => setHover(index)}
                             onMouseLeave={() => setHover(newComment.rating)}
