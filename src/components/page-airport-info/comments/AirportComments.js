@@ -7,10 +7,6 @@ import "./AirportComments.css"
 
 export const AirportComments = ({airportId}) => {
     
-    // declare state variable for comments connected to airportId
-    // useEffect which fetches comments data from json-server
-    // render .map of comments (probably calling a new component)
-    
     const [comments, setComments] = useState([])
 
     const getAllComments = () => {
@@ -50,6 +46,7 @@ export const AirportComments = ({airportId}) => {
                         rating={comment.rating}
                         edited={comment.edited}
                         dateEdited={comment.dateEdited}
+                        userId={comment.userId}
                         firstName={comment.user.firstName}
                         lastName={comment.user.lastName}
                         />

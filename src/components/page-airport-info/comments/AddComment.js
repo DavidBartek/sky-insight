@@ -4,7 +4,8 @@ export const AddComment = ({newComment, updateComment}) => {
         <input
             required
             type="text"
-            className=""
+            className="commentForm__input"
+            name="commentForm__input"
             placeholder="Add a comment"
             value={newComment.comment}
             onChange={

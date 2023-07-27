@@ -55,11 +55,16 @@
 }
 
 .searchBar__button {
+    cursor: pointer;
     text-align: center;
     background-color: transparent;
     border-radius: 5px;
     border-color: royalblue;
     animation: fadeIn 1s ease-in-out;
+}
+
+.searchBar__button:hover {
+    background-color: #eee;
 }
 
 .searchBar__button--icon {
