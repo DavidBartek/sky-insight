@@ -1,10 +1,13 @@
+const localAPI = `http://localhost:8088`
+
 // Search Bar - fetches result suggestions to display to user
 // to be added
 
 
 // Airport Header - fetches data from FAA NASR (through api.aeronutical.info)
 // include: demographic, ownership, geographic, runways
-// note: api.aeronautical.info not included due to CORS errors. This was added as a "proxy" property in package.json.
+// note: api.aeronautical.info not included in the url below due to CORS errors.
+// As a workaround, this url was added as a "proxy" property in package.json.
 
 export const fetchAirportInfo = (airportId) => {
     return fetch(`/dev/?airport=${airportId}&include=demographic&include=ownership&include=geographic&include=runways`)
@@ -18,10 +21,10 @@ export const fetchAirportInfo = (airportId) => {
         })
 }
 
-// Comments - fetches data from json-server, comments array
+// Comments - fetches data from json-server, returns comments array
 
 export const fetchComments = (airportId) => {
-    return fetch(`http://localhost:8088/comments?faaId=${airportId}&_expand=user`)
+    return fetch(`${localAPI}/comments?faaId=${airportId}&_expand=user`)
         .then((res) => res.json())
         .then((commentData) => {
             return commentData
@@ -29,5 +32,21 @@ export const fetchComments = (airportId) => {
         .catch((error) => {
             console.error('Error fetching comment data:', error)
             throw error
+        })
+}
+
+// Comments - posts new comment to json-server comments array
+
+export const postComment = (commentObj, faaId) => {
+    return fetch(`${localAPI}/comments`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(commentObj)
+    })
+        .then(res => res.json())
+        .then(() => {
+            fetchComments(faaId)
         })
 }

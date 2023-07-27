@@ -3,6 +3,16 @@
     flex-direction: column;
 }
 
+.commentsBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.comments__container{ 
+    border: black 1px solid;
+    margin: 1rem;
+    padding: 1rem;
+}
 .starButtonContainer{
     display: flex;
 }
@@ -34,4 +44,8 @@
     height: 25px;
     width: 25px;
     align-self: center;
+}
+
+.commentForm__button:hover {
+    background-color: #bbb;
 }
