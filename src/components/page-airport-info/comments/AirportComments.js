@@ -1,6 +1,9 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import { fetchComments } from "../../../DataAccess"
+import { Comment } from "./Comment"
+import { AddCommentForm } from "./AddCommentForm"
+import "./AirportComments.css"
 
 export const AirportComments = ({airportId}) => {
     
@@ -25,13 +28,21 @@ export const AirportComments = ({airportId}) => {
     }
     return (
         <div className="comments">
-            <h2 className="comments__header">Comments</h2>
+            <h3 className="comments__header">Comments</h3>
+            <AddCommentForm />
             <div className="comments__box">
                 {
-                    comments.map(comment => {
-                        return <div className="comments__comment" key={comment.id}>{comment.comment} INSERT COMPONENT HERE
-                        </div>
-                    })
+                    comments.map(comment => <Comment 
+                        key={comment.id}
+                        datePosted={comment.datePosted}
+                        comment={comment.comment}
+                        rating={comment.rating}
+                        edited={comment.edited}
+                        dateEdited={comment.dateEdited}
+                        firstName={comment.user.firstName}
+                        lastName={comment.user.lastName}
+                        />
+                    )
                 }
             </div>
         </div>
