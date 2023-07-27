@@ -1,0 +1,37 @@
+.commentForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.starButtonContainer{
+    display: flex;
+}
+
+.starOn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: royalblue
+}
+
+.starOff {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #bbb
+}
+
+.commentForm__button {
+    font-size: medium;
+    font-weight: 900;
+    text-align: center;
+    background-color: #ccc;
+    padding: 0;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    height: 25px;
+    width: 25px;
+    align-self: center;
+}
