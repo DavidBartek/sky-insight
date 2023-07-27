@@ -13,23 +13,34 @@ export const AirportComments = ({airportId}) => {
     
     const [comments, setComments] = useState([])
 
+    const getAllComments = () => {
+        fetchComments(airportId)
+            .then((data) => {
+                setComments(data)
+            })
+    }
+
     useEffect(
         () => {
-            fetchComments(airportId)
-                .then((data) => {
-                    setComments(data)
-                })
+            getAllComments()
         },
         []
     )
-    
+
+    useEffect(
+        () => {
+            getAllComments()
+        },
+        [comments]
+    )
+
     if (!comments) {
         return null
     }
     return (
         <div className="comments">
             <h3 className="comments__header">Comments</h3>
-            <AddCommentForm />
+            <AddCommentForm faaId={airportId}/>
             <div className="comments__box">
                 {
                     comments.map(comment => <Comment 

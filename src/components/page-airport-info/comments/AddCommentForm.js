@@ -6,24 +6,33 @@
 import { useState } from "react"
 import { AddCommentStar } from "./AddCommentStar"
 import { AddComment } from "./AddComment"
+import { postComment } from "../../../DataAccess"
 
-export const AddCommentForm = () => {
+export const AddCommentForm = ({faaId}) => {
     
     const [newComment, updateComment] = useState({
         comment: "",
         rating: 0
     })
 
+    const localSkyInsightUser = localStorage.getItem("skyinsight_user")
+    const userObject = JSON.parse(localSkyInsightUser)
+
     const handleSubmitClick = (e) => {
         e.preventDefault()
-        console.log("uwu")
+        // console.log("clicked")
         
-        // grab logged-in user's id
-        // grab faa Id
-        // create new Date() formatted YYYY-MM-DD
-        // grab newComment.comment, newComment.rating
-        // create edited: false
-        // create dateEdited: null
+        const commentObj = {
+            faaId: faaId,
+            userId: userObject.id,
+            datePosted: new Date().toISOString().split("T")[0],
+            comment: newComment.comment,
+            rating: newComment.rating,
+            edited: false,
+            dateEdited: null
+        }
+
+        postComment(commentObj, faaId)
 
         // return fetch function, defined in DataAccess. Pass in comment obj.
 
