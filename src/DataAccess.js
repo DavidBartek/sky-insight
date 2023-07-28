@@ -21,6 +21,37 @@ export const fetchAirportInfo = (airportId) => {
         })
 }
 
+// Weather - fetches XML data from aviationweather.gov
+
+export async function fetchMETARXML(airportId) {
+    try {
+        const res = await fetch(`https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&stationString=K${airportId}&hoursBeforeNow=2&mostRecent=true`)
+        if (!res.ok) {
+            throw new Error('failed to fetch METAR')
+        }
+
+        const metarXML = await res.text();
+        return metarXML
+    } catch (error) {
+        console.error("Error fetching XML data", error.message)
+        return null
+    }
+}
+
+// Airport Diagrams
+// this works in its own .js file. Logs to console.
+// const airportDiagrams = require("airport-diagrams");
+
+// const test = async () => {
+//     const cycle = await airportDiagrams.fetchCurrentCycle()
+//     console.log("Current Cycle", cycle)
+
+//     const diagrams = await airportDiagrams.list("KBNA")
+//     console.log(JSON.stringify(diagrams, null, 2))
+// }
+
+// test().then()
+
 // Comments - fetches comments array from json-server (READS)
 
 export const fetchComments = (airportId) => {

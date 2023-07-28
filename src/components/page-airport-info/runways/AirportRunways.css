@@ -1,0 +1,8 @@
+.runway__container {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.runway__name {
+    font-weight: bold;
+}
