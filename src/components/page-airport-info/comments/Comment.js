@@ -4,17 +4,12 @@ import { DeleteComment } from "./DeleteComment"
 import { useState } from "react"
 import { EditComment } from "./EditComment"
 
-export const Comment = ({id, datePosted, comment, rating, edited, dateEdited, userId, firstName, lastName}) => {
+export const Comment = ({id, faaId, datePosted, comment, rating, edited, dateEdited, userId, firstName, lastName, getAllComments}) => {
     
     const localSkyInsightUser = localStorage.getItem("skyinsight_user")
     const userObject = JSON.parse(localSkyInsightUser)
 
     const [editMode, setEditMode] = useState(false)
-
-    // // edit: "put" api call specified by comment ID
-    // // delete: "delete" api call specified by comment ID
-    
-    // rating will need to be parsed into stars. A new component.
 
     const editedOrNot = (edited, dateEdited) => {
         return edited ? `Edited on ${dateEdited}` : ""
@@ -28,7 +23,7 @@ export const Comment = ({id, datePosted, comment, rating, edited, dateEdited, us
 
     if (userObject.id === userId && !editMode) {
         return (
-            <div className="comment__container" key={id}>
+            <div className="comment__container">
                 <div className="comment__nameAndDate">
                     <div>{firstName} {lastName[0]}.</div>
                     <div>{datePosted}</div>
@@ -40,31 +35,47 @@ export const Comment = ({id, datePosted, comment, rating, edited, dateEdited, us
                 </div>
                 <div className="comment__editAndDeleteButtons">
                     <EditCommentButton editMode={editMode} setEditMode={setEditMode}/>
-                    <DeleteComment />
+                    <DeleteComment
+                        id={id}
+                        faaId={faaId}
+                        getAllComments={getAllComments} />
                 </div>
             </div> 
         )
     } else if (userObject.id === userId && editMode) {
         return (
-            <div className="comment__container" key={id}>
+            <div className="comment__container">
                 <div className="comment__nameAndDate">
                     <div>{firstName} {lastName[0]}.</div>
                     <div>{datePosted}</div>
                 </div>
-                <EditComment currentComment={comment} />
+                <EditComment 
+                    id={id} 
+                    faaId={faaId} 
+                    datePosted={datePosted} 
+                    currentComment={comment} 
+                    rating={rating}
+                    edited={edited}
+                    dateEdited={dateEdited}
+                    userId={userId}
+                    setEditMode={setEditMode}
+                    getAllComments={getAllComments} />
                 <div className="comment__starsAndEdit">
                     <CommentStar rating={rating}/>
                     <div className="comment__editDate">{editedOrNot(edited, dateEdited)}</div>
                 </div>
                 <div className="comment__editAndDeleteButtons">
                     <EditCommentButton editMode={editMode} setEditMode={setEditMode}/>
-                    <DeleteComment />
+                    <DeleteComment 
+                        id={id}
+                        faaId={faaId}
+                        getAllComments={getAllComments} />
                 </div>
             </div> 
         )
     } else {
         return (
-            <div className="comment__container" key={id}>
+            <div className="comment__container">
                 <div className="comment__nameAndDate">
                     <div>{firstName} {lastName[0]}.</div>
                     <div>{datePosted}</div>

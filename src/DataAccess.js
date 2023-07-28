@@ -21,23 +21,23 @@ export const fetchAirportInfo = (airportId) => {
         })
 }
 
-// Comments - fetches data from json-server, returns comments array
+// Comments - fetches comments array from json-server (READS)
 
 export const fetchComments = (airportId) => {
     return fetch(`${localAPI}/comments?faaId=${airportId}&_expand=user`)
         .then((res) => res.json())
-        .then((commentData) => {
-            return commentData
-        })
+        // .then((commentData) => {
+        //     return commentData
+        // })
         .catch((error) => {
             console.error('Error fetching comment data:', error)
             throw error
         })
 }
 
-// Comments - posts new comment to json-server comments array
+// Comments - ADDS new comment to json-server comments array
 
-export const postComment = (commentObj, faaId) => {
+export const postComment = (commentObj) => {
     return fetch(`${localAPI}/comments`, {
         method: "POST",
         headers: {
@@ -46,7 +46,35 @@ export const postComment = (commentObj, faaId) => {
         body: JSON.stringify(commentObj)
     })
         .then(res => res.json())
-        .then(() => {
-            fetchComments(faaId)
-        })
+        // .then(() => {
+        //     fetchComments(commentObj.faaId)
+        // })
+}
+
+// Comments - UPDATES selected comment in json-server comments array
+
+export const modifyComment = (commentObj) => {
+    return fetch(`${localAPI}/comments/${commentObj.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(commentObj)
+    })
+        .then(res => res.json())
+        // .then(() => {
+        //     fetchComments(commentObj.faaId)
+        // })
+}
+
+// Comments - DELETES selected comment in json-server comments array
+
+export const deleteComment = (commentId, faaId) => {
+    return fetch(`${localAPI}/comments/${commentId}`, {
+        method: "DELETE",
+        }
+    )
+        // .then(() => {
+        //     fetchComments(faaId)
+        // })
 }

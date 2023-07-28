@@ -23,24 +23,19 @@ export const AirportComments = ({airportId}) => {
         []
     )
 
-    useEffect(
-        () => {
-            getAllComments()
-        },
-        [comments]
-    )
-
     if (!comments) {
         return null
     }
     return (
         <div className="comments">
             <h3 className="comments__header">Comments</h3>
-            <AddCommentForm faaId={airportId}/>
+            <AddCommentForm faaId={airportId} getAllComments={getAllComments}/>
             <div className="comments__box">
                 {
                     comments.map(comment => <Comment 
-                        key={comment.id}
+                        key={`comment--${comment.id}`}
+                        id={comment.id}
+                        faaId={airportId}
                         datePosted={comment.datePosted}
                         comment={comment.comment}
                         rating={comment.rating}
@@ -49,6 +44,7 @@ export const AirportComments = ({airportId}) => {
                         userId={comment.userId}
                         firstName={comment.user.firstName}
                         lastName={comment.user.lastName}
+                        getAllComments={getAllComments}
                         />
                     )
                 }

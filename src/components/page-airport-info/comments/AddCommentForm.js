@@ -9,7 +9,7 @@ import { AddComment } from "./AddComment"
 import { postComment } from "../../../DataAccess"
 import { useEffect } from "react"
 
-export const AddCommentForm = ({faaId}) => {
+export const AddCommentForm = ({faaId, getAllComments}) => {
     
     const [newComment, updateComment] = useState({
         comment: "",
@@ -41,6 +41,10 @@ export const AddCommentForm = ({faaId}) => {
         }
 
         postComment(commentObj, faaId)
+            .then(() => {
+                getAllComments()
+            })
+            
 
         const copy = {...newComment}
         copy.comment = ""
