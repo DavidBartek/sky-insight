@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { modifyComment } from "../../../DataAccess"
+import { AddCommentStar } from "./AddCommentStar"
 
 export const EditComment = ({id, faaId, datePosted, currentComment, rating, edited, dateEdited, userId, setEditMode, getAllComments}) => {
     
@@ -49,7 +50,7 @@ export const EditComment = ({id, faaId, datePosted, currentComment, rating, edit
             </fieldset>
                         
             <div className="starButtonContainer">
-
+                <AddCommentStar newComment={editedComment} updateComment={setEditedComment} />
                 <button className="commentEditForm__button" type="submit">Submit</button>
 
             </div>

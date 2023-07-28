@@ -61,7 +61,6 @@ export const Comment = ({id, faaId, datePosted, comment, rating, edited, dateEdi
                     setEditMode={setEditMode}
                     getAllComments={getAllComments} />
                 <div className="comment__starsAndEdit">
-                    <CommentStar rating={rating}/>
                     <div className="comment__editDate">{editedOrNot(edited, dateEdited)}</div>
                 </div>
                 <div className="comment__editAndDeleteButtons">
