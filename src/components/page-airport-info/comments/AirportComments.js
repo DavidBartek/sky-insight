@@ -40,7 +40,9 @@ export const AirportComments = ({airportId}) => {
             <div className="comments__box">
                 {
                     comments.map(comment => <Comment 
-                        key={comment.id}
+                        key={`comment--${comment.id}`}
+                        id={comment.id}
+                        faaId={airportId}
                         datePosted={comment.datePosted}
                         comment={comment.comment}
                         rating={comment.rating}

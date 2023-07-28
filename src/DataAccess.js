@@ -37,7 +37,7 @@ export const fetchComments = (airportId) => {
 
 // Comments - posts new comment to json-server comments array
 
-export const postComment = (commentObj, faaId) => {
+export const postComment = (commentObj) => {
     return fetch(`${localAPI}/comments`, {
         method: "POST",
         headers: {
@@ -47,6 +47,22 @@ export const postComment = (commentObj, faaId) => {
     })
         .then(res => res.json())
         .then(() => {
-            fetchComments(faaId)
+            fetchComments(commentObj.faaId)
+        })
+}
+
+// Comments - updates selected comment in json-server comments array
+
+export const modifyComment = (commentObj) => {
+    return fetch(`${localAPI}/comments/${commentObj.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(commentObj)
+    })
+        .then(res => res.json())
+        .then(() => {
+            fetchComments(commentObj.faaId)
         })
 }

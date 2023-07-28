@@ -1,21 +1,26 @@
 import { useState } from "react"
+import { modifyComment } from "../../../DataAccess"
 
-export const EditComment = ({currentComment}) => {
+export const EditComment = ({id, faaId, datePosted, currentComment, rating, edited, dateEdited, userId, setEditMode}) => {
     
-    const [editedComment, setEditedComment] = useState(`${currentComment}`)
-
-    const localSkyInsightUser = localStorage.getItem("skyinsight_user")
-    const userObject = JSON.parse(localSkyInsightUser)
-
-    // is the above code block needed?
+    const [editedComment, setEditedComment] = useState({
+        id: id,
+        faaId: faaId,
+        userId: userId,
+        datePosted: datePosted,
+        comment: currentComment,
+        rating: rating,
+        edited: edited,
+        dateEdited: dateEdited
+    })
 
     const handleSubmitClick = (e) => {
         e.preventDefault()
-        console.log(editedComment)
-        // PUT
-        // access via commentId
-        // will modify comment content; set edited to true; create an editedDate
-        // set editing mode to off
+        const editedFinal = {...editedComment}
+        editedFinal.edited = true
+        editedFinal.dateEdited = new Date().toISOString().split("T")[0]
+        modifyComment(editedFinal)
+        setEditMode(false)
     }
     
     // much of the code below is a copy/modification of AddCommentForm.js and its children.
@@ -28,12 +33,12 @@ export const EditComment = ({currentComment}) => {
                     type="text"
                     className="commentEditForm__textarea"
                     name="commentEditForm__input"
-                    placeholder={editedComment}
-                    value={editedComment}
+                    placeholder={editedComment.comment}
+                    value={editedComment.comment}
                     onChange={
                         (e) => {
                             let copy = {...editedComment}
-                            copy = e.target.value
+                            copy.comment = e.target.value
                             setEditedComment(copy)
                         }
                     }
