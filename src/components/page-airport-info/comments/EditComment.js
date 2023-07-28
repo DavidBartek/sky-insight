@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { modifyComment } from "../../../DataAccess"
 
-export const EditComment = ({id, faaId, datePosted, currentComment, rating, edited, dateEdited, userId, setEditMode}) => {
+export const EditComment = ({id, faaId, datePosted, currentComment, rating, edited, dateEdited, userId, setEditMode, getAllComments}) => {
     
     const [editedComment, setEditedComment] = useState({
         id: id,
@@ -19,8 +19,11 @@ export const EditComment = ({id, faaId, datePosted, currentComment, rating, edit
         const editedFinal = {...editedComment}
         editedFinal.edited = true
         editedFinal.dateEdited = new Date().toISOString().split("T")[0]
-        modifyComment(editedFinal)
-        setEditMode(false)
+        modifyComment(editedFinal) // API PUT
+            .then(setEditMode(false))
+            .then(() => {
+                getAllComments()
+            })
     }
     
     // much of the code below is a copy/modification of AddCommentForm.js and its children.

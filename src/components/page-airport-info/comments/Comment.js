@@ -4,7 +4,7 @@ import { DeleteComment } from "./DeleteComment"
 import { useState } from "react"
 import { EditComment } from "./EditComment"
 
-export const Comment = ({id, faaId, datePosted, comment, rating, edited, dateEdited, userId, firstName, lastName}) => {
+export const Comment = ({id, faaId, datePosted, comment, rating, edited, dateEdited, userId, firstName, lastName, getAllComments}) => {
     
     const localSkyInsightUser = localStorage.getItem("skyinsight_user")
     const userObject = JSON.parse(localSkyInsightUser)
@@ -35,7 +35,10 @@ export const Comment = ({id, faaId, datePosted, comment, rating, edited, dateEdi
                 </div>
                 <div className="comment__editAndDeleteButtons">
                     <EditCommentButton editMode={editMode} setEditMode={setEditMode}/>
-                    <DeleteComment />
+                    <DeleteComment
+                        id={id}
+                        faaId={faaId}
+                        getAllComments={getAllComments} />
                 </div>
             </div> 
         )
@@ -55,14 +58,18 @@ export const Comment = ({id, faaId, datePosted, comment, rating, edited, dateEdi
                     edited={edited}
                     dateEdited={dateEdited}
                     userId={userId}
-                    setEditMode={setEditMode} />
+                    setEditMode={setEditMode}
+                    getAllComments={getAllComments} />
                 <div className="comment__starsAndEdit">
                     <CommentStar rating={rating}/>
                     <div className="comment__editDate">{editedOrNot(edited, dateEdited)}</div>
                 </div>
                 <div className="comment__editAndDeleteButtons">
                     <EditCommentButton editMode={editMode} setEditMode={setEditMode}/>
-                    <DeleteComment />
+                    <DeleteComment 
+                        id={id}
+                        faaId={faaId}
+                        getAllComments={getAllComments} />
                 </div>
             </div> 
         )
