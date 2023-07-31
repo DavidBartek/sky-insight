@@ -1,4 +1,5 @@
 const localAPI = `http://localhost:8088`
+const expressServer = `http://localhost:9001`
 
 // Search Bar - fetches result suggestions to display to user
 // to be added
@@ -21,21 +22,32 @@ export const fetchAirportInfo = (airportId) => {
         })
 }
 
-// Weather - fetches XML data from aviationweather.gov
+// Weather (METAR) - fetches data from aviationweather.gov ADDS Text Data Server by way of local Node Express server
 
-export async function fetchMETARXML(airportId) {
-    try {
-        const res = await fetch(`https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&stationString=K${airportId}&hoursBeforeNow=2&mostRecent=true`)
-        if (!res.ok) {
-            throw new Error('failed to fetch METAR')
-        }
+export const fetchMETAR = (airportId) => {
+    return fetch(`${expressServer}/metar/${airportId}`)
+        .then (res => res.json())
+        .then(metarData => {
+            return metarData
+        })
+        .catch((error) => {
+            console.error('Error fetching METAR data:', error)
+            throw error
+        })
+}
 
-        const metarXML = await res.text();
-        return metarXML
-    } catch (error) {
-        console.error("Error fetching XML data", error.message)
-        return null
-    }
+// Weather (TAF) - fetches data from aviationweather.gov ADDS Text Data Server by way of local Node Express server
+
+export const fetchTAF = (airportId) => {
+    return fetch(`${expressServer}/taf/${airportId}`)
+        .then (res => res.json())
+        .then(tafData => {
+            return tafData
+        })
+        .catch((error) => {
+            console.error('Error fetching TAF data:', error)
+            throw error
+        })
 }
 
 // Airport Diagrams
