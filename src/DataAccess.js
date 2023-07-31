@@ -2,7 +2,19 @@ const localAPI = `http://localhost:8088`
 const expressServer = `http://localhost:9001`
 
 // Search Bar - fetches result suggestions to display to user
-// to be added
+// pulls from json-server
+
+export const fetchSearchSuggestions = () => {
+    return fetch("http://localhost:8088/airports")
+        .then((res) => res.json())
+        .then((data) => {
+            return data
+        })
+        .catch((error) => {
+            console.error(`Error fetching searchbar suggestion data:`, error)
+            throw error
+        })
+}
 
 
 // Airport Header - fetches data from FAA NASR (through api.aeronutical.info) by way of local Node Express server

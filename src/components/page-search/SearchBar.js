@@ -1,14 +1,22 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaSearch } from "react-icons/fa"
 import { SearchButton } from "./SearchButton"
+import { fetchSearchSuggestions } from "../../DataAccess"
 
 export const SearchBar = ({ setResults, searchBarText, selection }) => {
     
     const [input, setInput] = useState("")
 
+    useEffect(
+        () => {
+            fetchResults("")
+                
+        },
+        []
+    )
+
     const fetchResults = (value) => {
-        fetch("http://localhost:8088/airports")
-            .then((res) => res.json())
+        fetchSearchSuggestions()
             .then((data) => {
                 // console.log(data)
                 const results = data.filter((airport) => {
