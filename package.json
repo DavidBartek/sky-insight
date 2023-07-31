@@ -1,6 +1,5 @@
 {
   "name": "sky-insight",
-  "proxy": "https://api.aeronautical.info",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

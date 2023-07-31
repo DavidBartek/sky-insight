@@ -5,13 +5,11 @@ const expressServer = `http://localhost:9001`
 // to be added
 
 
-// Airport Header - fetches data from FAA NASR (through api.aeronutical.info)
-// include: demographic, ownership, geographic, runways
-// note: api.aeronautical.info not included in the url below due to CORS errors.
-// As a workaround, this url was added as a "proxy" property in package.json.
+// Airport Header - fetches data from FAA NASR (through api.aeronutical.info) by way of local Node Express server
+// includes: demographic, ownership, geographic, runways
 
 export const fetchAirportInfo = (airportId) => {
-    return fetch(`/dev/?airport=${airportId}&include=demographic&include=ownership&include=geographic&include=runways`)
+    return fetch(`${expressServer}/airport/${airportId}`)
         .then((res) => res.json())
         .then((airportData) => {
             return airportData
@@ -69,9 +67,6 @@ export const fetchTAF = (airportId) => {
 export const fetchComments = (airportId) => {
     return fetch(`${localAPI}/comments?faaId=${airportId}&_expand=user`)
         .then((res) => res.json())
-        // .then((commentData) => {
-        //     return commentData
-        // })
         .catch((error) => {
             console.error('Error fetching comment data:', error)
             throw error
@@ -89,9 +84,6 @@ export const postComment = (commentObj) => {
         body: JSON.stringify(commentObj)
     })
         .then(res => res.json())
-        // .then(() => {
-        //     fetchComments(commentObj.faaId)
-        // })
 }
 
 // Comments - UPDATES selected comment in json-server comments array
@@ -105,19 +97,13 @@ export const modifyComment = (commentObj) => {
         body: JSON.stringify(commentObj)
     })
         .then(res => res.json())
-        // .then(() => {
-        //     fetchComments(commentObj.faaId)
-        // })
 }
 
 // Comments - DELETES selected comment in json-server comments array
 
-export const deleteComment = (commentId, faaId) => {
+export const deleteComment = (commentId) => {
     return fetch(`${localAPI}/comments/${commentId}`, {
-        method: "DELETE",
+        method: "DELETE"
         }
     )
-        // .then(() => {
-        //     fetchComments(faaId)
-        // })
 }
