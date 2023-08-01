@@ -17,7 +17,7 @@ export const fetchSearchSuggestions = () => {
 }
 
 
-// Airport Header - fetches data from FAA NASR (through api.aeronutical.info) by way of local Node Express server
+// Airport Header - fetches data from FAA 28-Day NASR (through api.aeronutical.info) by way of local Node Express server
 // includes: demographic, ownership, geographic, runways
 
 export const fetchAirportInfo = (airportId) => {
@@ -36,7 +36,7 @@ export const fetchAirportInfo = (airportId) => {
 
 export const fetchMETAR = (airportId) => {
     return fetch(`${expressServer}/metar/${airportId}`)
-        .then (res => res.json())
+        .then(res => res.json())
         .then(metarData => {
             return metarData
         })
@@ -50,12 +50,26 @@ export const fetchMETAR = (airportId) => {
 
 export const fetchTAF = (airportId) => {
     return fetch(`${expressServer}/taf/${airportId}`)
-        .then (res => res.json())
+        .then(res => res.json())
         .then(tafData => {
             return tafData
         })
         .catch((error) => {
             console.error('Error fetching TAF data:', error)
+            throw error
+        })
+}
+
+// Frequencies - fetches data from FAA 28-Day NASR, current cycle (7/13/23) saved to local json-server
+
+export const fetchFrequencies = (airportId) => {
+    return fetch(`${localAPI}/frequencies/?SERVICED_FACILITY=${airportId}`)
+        .then(res => res.json())
+        .then(freqData => {
+            return freqData
+        })
+        .catch((error) => {
+            console.error('Error fetching frequency data:', error)
             throw error
         })
 }
