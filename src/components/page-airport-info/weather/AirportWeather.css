@@ -1,0 +1,19 @@
+.metar__data--VFR,
+.taf__data--VFR {
+    color: #1abe07;
+}
+
+.metar__data--MVFR,
+.taf__data--MVFR {
+    color: #1c56cf;
+}
+
+.metar__data--IFR,
+.taf__data--IFR {
+    color: #fb0807;
+}
+
+.metar__data--LIFR,
+.taf__data--LIFR {
+    color: #fa04ff;
+}
