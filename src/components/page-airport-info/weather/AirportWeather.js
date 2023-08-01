@@ -100,6 +100,27 @@ export const AirportWeather = ({airportId}) => {
         }
     }
 
+    // // beginning of an attempt to format raw TAF.
+    // const formatRawTAFString = (str) => {
+    //     const wordsArray = str.split(' ');
+
+    //     // Filter out the words "FM" and "TEMPO" along with the words immediately following them
+    //     const resultArray = [];
+    //     let skipNextWord = false;
+
+    //     for (let i = 1; i < wordsArray.length; i++) {
+    //         if (wordsArray[i] === "FM" || wordsArray[i] === "TEMPO") {
+    //             skipNextWord = true;
+    //             resultArray.push(`${wordsArray[i]} ${wordsArray[i + 1]}`);
+    //         } else if (!skipNextWord) {
+    //             resultArray.push(wordsArray[i]);
+    //         } else {
+    //             skipNextWord = false;
+    //         }
+    //     }
+    //     console.log(resultArray)
+    // }
+
     // unfortunately, due to timing issues from the API, METAR and TAF cannot be rendered in external components. It all has to happen here.
 
     // rendering possibilities:
