@@ -74,6 +74,27 @@ export const fetchFrequencies = (airportId) => {
         })
 }
 
+// Airport Diagrams - fetches airport diagram via airport-diagrams npm library
+
+const airportDiagrams = require("airport-diagrams")
+
+export const fetchAirportDiagram = async (airportId) => {
+    const diagrams = await airportDiagrams.list(`K${airportId}`)
+    return JSON.stringify(diagrams, null, 2)
+}
+
+// Chart Supplements
+
+const chartSupplements = require("chart-supplements")
+
+export const fetchChartSupplement = (airportId) => {
+    chartSupplements.list(`K${airportId}`)
+        .then(results => {
+            return results
+        })
+}
+
+
 // Airport Diagrams
 // this works in its own .js file. Logs to console.
 // const airportDiagrams = require("airport-diagrams");

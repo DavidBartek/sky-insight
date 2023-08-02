@@ -22,7 +22,6 @@ export const AirportFrequencies = ({airportId}) => {
         <div className="airport__frequencies">
             <h3 className="frequencies__header">Frequencies</h3>
             <div className="frequencies__box">
-            {/* // this will be modified to call orderFrequencies */}
             {
                 frequencyData.map((freqObj, index) => {
                     return <Frequency freqObj={freqObj} key={index}/>
