@@ -220,7 +220,8 @@ export const AirportWeather = ({airportId}) => {
                             <div>Altimeter: {roundToTwoDec(currentMETAR.response?.data[0].METAR[0].altim_in_hg[0])} inHg</div>
                         </div>
                     </div>
-                    <div className="weather__taf">
+                    {/* { PT TAF to be built out } */}
+                    {/* <div className="weather__taf">
                         <div className="taf__title">TAF: </div>
                         <div className="taf__data--plainText">
                             {currentTAF.response?.data[0].TAF[0].forecast.map((block, index) => 
@@ -229,17 +230,20 @@ export const AirportWeather = ({airportId}) => {
                                         <div>{convertTimestamp(block.fcst_time_from)}</div>
                                         <div>Wind: {block.wind_dir_degrees[0]}° at {block.wind_speed_kt[0]} kts</div>
                                         <div>Visibility: {roundToWhole(block.visibility_statute_mi)} sm</div>
-                                        <div>Clouds (AGL): {block.sky_condition.map((layer, index) => 
-                                            {
+                                        <div>Clouds (AGL): {block.sky_condition ? (
+                                            block.sky_condition.map((layer, index) => {
                                                 return <div key={index}>{convertStrToTitleCase(layer.$.sky_cover)} {layer.$.cloud_base_ft_agl}'</div>
-                                            }
-                                        )}
-                                        </div>
+                                            })
+                                            ) : (
+                                                <div>No info available</div>
+                                                )
+                                        } </div>
                                     </div>
                                 }
+                                
                             )}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )

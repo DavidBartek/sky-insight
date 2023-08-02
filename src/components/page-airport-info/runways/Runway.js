@@ -1,4 +1,8 @@
 export const Runway = ({runway}) => {
+    // e.g., ASE has a runway 00X - want to exclude these
+    if (runway.name.startsWith("00")) {
+        return ""
+    }
     return (
         <div className="runway__container">
             <div className="runway__name">{runway.name}</div>
