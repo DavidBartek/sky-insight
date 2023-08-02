@@ -1,5 +1,5 @@
 export const Runway = ({runway}) => {
-    // e.g., ASE has a runway 00X - want to exclude these
+    // if block: e.g., ASE has a runway "00X" - want to exclude this
     if (runway.name.startsWith("00")) {
         return ""
     }

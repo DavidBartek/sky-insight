@@ -4,6 +4,7 @@ import { AirportComments } from "./comments/AirportComments"
 import { AirportWeather } from "./weather/AirportWeather"
 import { AirportRunways } from "./runways/AirportRunways"
 import { AirportFrequencies } from "./frequencies/AirportFrequencies"
+import { AirportNotams } from "./notams/AirportNotams"
 
 export const AirportPage = () => {
     
@@ -16,6 +17,7 @@ export const AirportPage = () => {
             <AirportWeather airportId={airportId}/>
             <AirportFrequencies airportId={airportId}/>
             <AirportRunways airportId={airportId}/>
+            <AirportNotams airportId={airportId}/>
             <AirportComments airportId={airportId}/>
         </>
     )
