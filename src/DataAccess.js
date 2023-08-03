@@ -5,7 +5,7 @@ const expressServer = `http://localhost:9001`
 // pulls from json-server
 
 export const fetchSearchSuggestions = () => {
-    return fetch("http://localhost:8088/airports")
+    return fetch(`${localAPI}/airports`)
         .then((res) => res.json())
         .then((data) => {
             return data
@@ -74,40 +74,36 @@ export const fetchFrequencies = (airportId) => {
         })
 }
 
-// Airport Diagrams - fetches airport diagram via airport-diagrams npm library
+// Airport Diagrams - fetches current cycle (7/13/23) from local json-server
+// only a sample database: // sample list: "KBNA", "KXNX", "KJWN", "M54", "KMQY", "KJFK", "KDFW", "KDEN", "KAPA", "KBJC", "KASE", "KBDU", "KCFO", "KSRB", "KSYI"
+// < Class D airports have empty string for url
 
-const airportDiagrams = require("airport-diagrams")
-
-export const fetchAirportDiagram = async (airportId) => {
-    const diagrams = await airportDiagrams.list(`K${airportId}`)
-    return JSON.stringify(diagrams, null, 2)
-}
-
-// Chart Supplements
-
-const chartSupplements = require("chart-supplements")
-
-export const fetchChartSupplement = (airportId) => {
-    chartSupplements.list(`K${airportId}`)
-        .then(results => {
-            return results
+export const fetchAirportDiagram = (airportId) => {
+    return fetch(`${localAPI}/airportDiagramsSample?faaId=${airportId}`)
+        .then((res) => res.json())
+        .then((data) => {
+            return data
+        })
+        .catch((error) => {
+            console.error(`Error fetching airport diagram data:`, error)
+            throw error
         })
 }
 
+// Chart Supplements - fetches current cycle (6/15/23) from local json-server
+// only a sample database: // sample list: "KBNA", "KXNX", "KJWN", "M54", "KMQY", "KJFK", "KDFW", "KDEN", "KAPA", "KBJC", "KASE", "KBDU", "KCFO", "KSRB", "KSYI"
 
-// Airport Diagrams
-// this works in its own .js file. Logs to console.
-// const airportDiagrams = require("airport-diagrams");
-
-// const test = async () => {
-//     const cycle = await airportDiagrams.fetchCurrentCycle()
-//     console.log("Current Cycle", cycle)
-
-//     const diagrams = await airportDiagrams.list("KBNA")
-//     console.log(JSON.stringify(diagrams, null, 2))
-// }
-
-// test().then()
+export const fetchChartSupplement = (airportId) => {
+    return fetch(`${localAPI}/chartSupplementsSample?faaId=${airportId}`)
+        .then((res) => res.json())
+        .then((data) => {
+            return data
+        })
+        .catch((error) => {
+            console.error(`Error fetching chart supplement data:`, error)
+            throw error
+        })
+}
 
 // Comments - fetches comments array from json-server (READS)
 
@@ -154,3 +150,27 @@ export const deleteComment = (commentId) => {
         }
     )
 }
+
+/* Deprecated */
+
+// Airport Diagrams - fetches airport diagram via airport-diagrams npm library
+// this npm library is broken; chart supplements ok for now
+
+// const airportDiagrams = require("airport-diagrams")
+// export const fetchAirportDiagram = async (airportId) => {
+//     const diagrams = await airportDiagrams.list(`K${airportId}`)
+//     return JSON.stringify(diagrams, null, 2)
+// }
+
+// Chart Supplements - 3rd party node library fetch by way of express server. Sometimes takes 20 sec, sometimes nothing ever comes.
+// export const fetchChartSupplement = (airportId) => {
+//     return fetch(`${expressServer}/chartSupplement/${airportId}`)
+//         .then(res => res.json())
+//         .then(chartSupplementObj => {
+//             return chartSupplementObj
+//         })
+//         .catch((error) => {
+//             console.error('Error fetching chart supplement data:', error)
+//             throw error
+//         })
+// }

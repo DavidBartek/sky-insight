@@ -5,7 +5,9 @@ import { AirportWeather } from "./weather/AirportWeather"
 import { AirportRunways } from "./runways/AirportRunways"
 import { AirportFrequencies } from "./frequencies/AirportFrequencies"
 import { AirportNotams } from "./notams/AirportNotams"
-import { AirportDiagram } from "./airport-diagram/Airport-AirportDiagram"
+import { AirportChartSupplement } from "./chart-supplement/AirportChartSupplement"
+import { AirportDiagram } from "./airport-diagram/AirportDiagram"
+import { AirportMaps } from "./maps/AirportMaps"
 
 export const AirportPage = () => {
     
@@ -19,7 +21,9 @@ export const AirportPage = () => {
             <AirportFrequencies airportId={airportId}/>
             <AirportRunways airportId={airportId}/>
             <AirportNotams airportId={airportId}/>
+            <AirportChartSupplement airportId={airportId}/>
             <AirportDiagram airportId={airportId}/>
+            <AirportMaps airportId={airportId}/>
             <AirportComments airportId={airportId}/>
         </>
     )

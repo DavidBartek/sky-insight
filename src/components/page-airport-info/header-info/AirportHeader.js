@@ -6,13 +6,14 @@ export const AirportHeader = ({airportId}) => {
 
     const [airportData, setAirportData] = useState({})
 
-    // console.log(airportId)
+    // // console.log(airportId)
 
     useEffect(
         () => {
             fetchAirportInfo(airportId)
                 .then((data) => {
                     setAirportData(data)
+                    console.log("airport data:", data)
                 })
         },
         []

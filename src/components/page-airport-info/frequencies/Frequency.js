@@ -72,7 +72,7 @@ export const Frequency = ({freqObj}) => {
             <div className="frequency__container">
                 <div className="frequency__name">{convertStrToTitleCase(freqObj.TOWER_OR_COMM_CALL)} Tower</div>
                 <div className="frequency__freq">{freqObj.FREQ}</div>
-                {freqObj.TOWER_HOURS === 24 ? <div className="frequency__towerHours">24 H</div> : <div className="frequency__towerHours">{freqObj.TOWER_HRS} local</div>}
+                {freqObj?.TOWER_HRS.startsWith("24") ? <div className="frequency__towerHours">24 hrs</div> : <div className="frequency__towerHours">{freqObj.TOWER_HRS} local</div>}
                 {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
             </div>
         )

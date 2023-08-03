@@ -89,9 +89,9 @@ export const AirportWeather = ({airportId}) => {
         
         if (ceilingAGL >= 3000 && viz >= 5) {
             return "taf__data--VFR"
-        } else if (ceilingAGL >= 1000 && ceilingAGL < 3000 || viz >= 3 && viz < 5) {
+        } else if ((ceilingAGL >= 1000 && ceilingAGL < 3000) || (viz >= 3 && viz < 5)) {
             return "taf__data--MVFR"
-        } else if (ceilingAGL >= 500 && ceilingAGL < 1000 || viz >= 1 && viz < 3) {
+        } else if ((ceilingAGL >= 500 && ceilingAGL < 1000) || (viz >= 1 && viz < 3)) {
             return "taf__data--IFR"
         } else if (ceilingAGL < 500 || viz < 1) {
             return "taf__data--MVFR"

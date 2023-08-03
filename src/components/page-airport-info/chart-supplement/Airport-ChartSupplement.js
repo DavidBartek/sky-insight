@@ -1,2 +1,0 @@
-// access via:
-// airportNavAidListing.url
