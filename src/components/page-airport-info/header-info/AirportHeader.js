@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { fetchAirportInfo } from "../../../DataAccess"
 import "./AirportHeader.css"
+import { AirportFavorite } from "./AirportFavorite"
 
 export const AirportHeader = ({airportId}) => {
 
@@ -13,7 +14,7 @@ export const AirportHeader = ({airportId}) => {
             fetchAirportInfo(airportId)
                 .then((data) => {
                     setAirportData(data)
-                    console.log("airport data:", data)
+                    // console.log("airport data:", data)
                 })
         },
         []
@@ -56,13 +57,18 @@ export const AirportHeader = ({airportId}) => {
         return null
     } else {
         return (
-            <div className="airport__header">
-                <h2 className="airport__name">{airportNameString}</h2>
-                <h2 className="airport__id">({airportData.icao_id || airportData.faa_id})</h2>
-                <h4 className="airport__location">{locationString}</h4>
-                <h4 className="airport__coordinates">Coordinates: {coordinatesString}</h4>
-                <h4 className="airport__elevation">Elevation: {airportData.elevation}' MSL (Pattern Altitude: {airportData.elevation + 1000}' MSL)</h4>
-            </div>
+            <>
+                <div className="airport__header">
+                    <h2 className="airport__name">{airportNameString}</h2>
+                    <h2 className="airport__id">({airportData.icao_id || airportData.faa_id})</h2>
+                    <h4 className="airport__location">{locationString}</h4>
+                    <h4 className="airport__coordinates">Coordinates: {coordinatesString}</h4>
+                    <h4 className="airport__elevation">Elevation: {airportData.elevation}' MSL (Pattern Altitude: {airportData.elevation + 1000}' MSL)</h4>
+                </div>
+                <div className="airport__favorite">
+                    <AirportFavorite airportId={airportId}/>
+                </div>
+            </>
         )
     }
 }

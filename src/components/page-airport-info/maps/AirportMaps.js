@@ -41,7 +41,7 @@ export const AirportMaps = ({airportId}) => {
         }
 
         const decCoordsStr = decCoordsInt.toString()
-        console.log(decCoordsStr)
+        // console.log(decCoordsStr)
 
         return decCoordsStr
     }
@@ -61,7 +61,7 @@ export const AirportMaps = ({airportId}) => {
     } else if (mapView === "google") {
         return (
             <div className="airport__map">
-                <GoogleView airportId={airportId} setMapView={setMapView}/>
+                <GoogleView airportId={airportId} latitudeSecs={latitudeSecs} longitudeSecs={longitudeSecs} setMapView={setMapView}/>
             </div>
         )
     }

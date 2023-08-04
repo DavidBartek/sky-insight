@@ -151,6 +151,57 @@ export const deleteComment = (commentId) => {
     )
 }
 
+// Profile Page Favorite Airports - fetches given user's favorite airports
+
+export const fetchFavoriteAirports = (userId) => {
+    return fetch(`${localAPI}/favorites?userId=${userId}`)
+        .then((res) => res.json())
+        .then((data) => {
+            return data
+        })
+        .catch((error) => {
+            console.error(`Error fetching favorites data:`, error)
+            throw error
+        })
+}
+
+// Airport Page Favorite Airport - fetches given user's favorite airports AND specifies airport
+
+export const fetchFavoriteAirportSingle = (userId, airportId) => {
+    return fetch(`${localAPI}/favorites?userId=${userId}&faaId=${airportId}`)
+        .then((res) => res.json())
+        .then((data) => {
+            return data
+        })
+        .catch((error) => {
+            console.error(`Error fetching favorites data:`, error)
+            throw error
+        })
+}
+
+// Airport Page - posts new favorite airport object to json-server
+
+export const addFavoriteAirport = (favoriteObj) => {
+    return fetch(`${localAPI}/favorites`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(favoriteObj)
+    })
+        .then(res => res.json())
+}
+
+// Airport Page - deletes favorite object from json-server
+
+export const deleteFavoriteAirport = (favoriteId) => {
+    return fetch(`${localAPI}/favorites/${favoriteId}`, {
+        method: "DELETE"
+        }
+    )
+}
+
+
 /* Deprecated */
 
 // Airport Diagrams - fetches airport diagram via airport-diagrams npm library
