@@ -49,11 +49,11 @@ export const AirportFavorite = ({airportId}) => {
 
     if (!airportFavoriteData) {
         return (
-            <button onClick={(e) => {handleSetFavorite(e)}}><BsBookmarkStar /></button>
+            <button className="favorite__button--add" onClick={(e) => {handleSetFavorite(e)}}><BsBookmarkStar /></button>
         )
     } else if (airportFavoriteData.faaId === airportId) {
         return (
-            <button onClick={(e) => {handleRemoveFavorite(e)}}><BsBookmarkStarFill /></button>
+            <button className="favorite__button--remove" onClick={(e) => {handleRemoveFavorite(e)}}><BsBookmarkStarFill /></button>
         )
     } else {
         return null

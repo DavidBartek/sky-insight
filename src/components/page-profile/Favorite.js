@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
-import { fetchAirportInfo } from "../../DataAccess"
+import { deleteFavoriteAirport, fetchAirportInfo } from "../../DataAccess"
+import { TiDelete } from "react-icons/ti"
+import { useNavigate } from "react-router-dom"
 
-export const Favorite = ({faaId}) => {
+export const Favorite = ({favoriteId, faaId, getAllFavorites}) => {
     
     const [airportData, setAirportData] = useState({})
     const [latitudeSecs, setLatitudeSecs] = useState("")
     const [longitudeSecs, setLongitudeSecs] = useState("")
+    const navigate = useNavigate()
 
     useEffect(
         () => {
@@ -58,18 +61,34 @@ export const Favorite = ({faaId}) => {
 
         return decCoordsStr
     }
-    
+
+    const navigateToAirport = () => {
+        navigate(`/airports/${faaId}`)
+    }
+
+    const handleDeleteFavorite = (e) => {
+        e.preventDefault()
+
+        // console.log(favoriteId)
+
+        deleteFavoriteAirport(favoriteId)
+
+        getAllFavorites()
+    }
+
     if (!airportData) {
         return null
     }
     return (
         <div className="favorites__favorite">
-            <h3 className="airport__name">{airportNameString} ({faaId})</h3>
-            <h4 className="airport__location">{locationString}</h4>
+            <h3 className="favorite__name">{airportNameString} ({faaId})</h3>
+            <h4 className="favorite__location">{locationString}</h4>
             <img
                 src={`https://vfrmap.com/api?req=map&type=sectc&lat=${latitudeSecs}&lon=${longitudeSecs}&zoom=10&width=450&height=350`}
                 style={{width: '250px', height: '200px', frameborder: '0'}}
+                onClick={navigateToAirport}
             />
+            <button className="favorite__delete" onClick={(e) => {handleDeleteFavorite(e)}}><TiDelete /></button>
         </div>
     )
 }

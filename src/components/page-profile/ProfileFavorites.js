@@ -8,18 +8,30 @@ export const ProfileFavorites = ({userObject}) => {
 
     const [favoriteAirports, setFavoriteAirports] = useState([])
 
+    const getAllFavorites = () => {
+        fetchFavoriteAirports(userObject.id)
+            .then(data => {
+                setFavoriteAirports(data)
+            })
+    }
+
     useEffect(
         () => {
-            fetchFavoriteAirports(userObject.id)
-                .then(data => {
-                    setFavoriteAirports(data)
-                })
+            getAllFavorites()
         },
         []
     )
 
-    // once airport Ids are fetched:
-    // 
+
+    // useEffect(
+    //     () => {
+    //         fetchFavoriteAirports(userObject.id)
+    //             .then(data => {
+    //                 setFavoriteAirports(data)
+    //             })
+    //     },
+    //     []
+    // )
     
     if (!favoriteAirports) {
         return null
@@ -27,7 +39,12 @@ export const ProfileFavorites = ({userObject}) => {
     return (
         <div className="favorites__container">
             {
-                favoriteAirports.map(favorite => <Favorite key={favorite.id} faaId={favorite.faaId}/>)
+                favoriteAirports.map(favorite => 
+                    <Favorite 
+                        key={favorite.id} 
+                        favoriteId={favorite.id} 
+                        faaId={favorite.faaId}
+                        getAllFavorites={getAllFavorites}/>)
             }
         </div>
     )
