@@ -1,12 +1,12 @@
 import {AiOutlineDelete} from "react-icons/ai"
 import { deleteComment } from "../../../DataAccess"
 
-export const DeleteComment = ({id, faaId, getAllComments}) => {
+export const DeleteComment = ({id, getAllComments}) => {
     
     const handleDeleteButton = (e) => {
         e.preventDefault()
         console.log(id)
-        deleteComment(id, faaId)
+        deleteComment(id)
             .then(() => {
                 getAllComments()
             })

@@ -37,7 +37,6 @@ export const Comment = ({id, faaId, datePosted, comment, rating, edited, dateEdi
                     <EditCommentButton editMode={editMode} setEditMode={setEditMode}/>
                     <DeleteComment
                         id={id}
-                        faaId={faaId}
                         getAllComments={getAllComments} />
                 </div>
             </div> 
@@ -67,7 +66,6 @@ export const Comment = ({id, faaId, datePosted, comment, rating, edited, dateEdi
                     <EditCommentButton editMode={editMode} setEditMode={setEditMode}/>
                     <DeleteComment 
                         id={id}
-                        faaId={faaId}
                         getAllComments={getAllComments} />
                 </div>
             </div> 
