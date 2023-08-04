@@ -18,7 +18,7 @@ export const SectionalView = ({latitudeSecs, longitudeSecs, setMapView}) => {
                 </a>
             </div>
             <button className="map__button" onClick={handleMapButton}>
-            View Google Map
+            View Satellite Map
             </button>
         </div>
     )

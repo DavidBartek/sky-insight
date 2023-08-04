@@ -124,6 +124,7 @@ export const AirportWeather = ({airportId}) => {
     // unfortunately, due to timing issues from the API, METAR and TAF cannot be rendered in external components. It all has to happen here.
 
     // rendering possibilities:
+    // // plain text mode off and no TAF reported AND no METAR reported. PT convert button removed.
     // // plain text mode off and no TAF reported
     // // plain text mode off and TAF reported
     // // plain text mode on and no TAF reported
@@ -132,6 +133,22 @@ export const AirportWeather = ({airportId}) => {
 
     if (!currentMETAR || !currentTAF) {
         return null
+    } else if (!plainTextMode && (!currentTAF.response?.data[0].TAF && !currentMETAR.response?.data[0].METAR)) {
+        return (
+            <div className="airport__weather">
+                <h3 className="weather__header">Current and Forecasted Weather</h3>
+                <div className="weather__container">
+                    <div className="weather__metar">
+                        <div className="metar__title">METAR: </div>
+                        <div className="metar__data">No METAR reported.</div>
+                    </div>
+                    <div className="weather__taf">
+                        <div className="taf__title">TAF: </div>
+                        <div className="taf__data--rawText">No TAF reported.</div>
+                    </div>
+                </div>
+            </div>
+        )
     } else if (!plainTextMode && !currentTAF.response?.data[0].TAF) {
         return (
             <div className="airport__weather">
