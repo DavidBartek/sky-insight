@@ -1,5 +1,9 @@
+import { MdOutlineSatelliteAlt } from "react-icons/md"
+
 export const SectionalView = ({latitudeSecs, longitudeSecs, setMapView}) => {
     
+    const windowWidth = window.innerWidth;
+
     const handleMapButton = () => {
         setMapView("google")
     }
@@ -12,13 +16,14 @@ export const SectionalView = ({latitudeSecs, longitudeSecs, setMapView}) => {
                     target="_blank"
                     rel="noreferrer">
                     <img
-                        src={`https://vfrmap.com/api?req=map&type=sectc&lat=${latitudeSecs}&lon=${longitudeSecs}&zoom=10&width=450&height=350`}
-                        style={{width: '450px', height: '350px', frameborder: '0'}}
+                        className="map__styling--sectional"
+                        src={`https://vfrmap.com/api?req=map&type=sectc&lat=${latitudeSecs}&lon=${longitudeSecs}&zoom=11&width=${windowWidth}&height=200`}
                     />
                 </a>
+                <div className="map__fade"></div>
             </div>
             <button className="map__button" onClick={handleMapButton}>
-            View Satellite Map
+                <MdOutlineSatelliteAlt/>
             </button>
         </div>
     )

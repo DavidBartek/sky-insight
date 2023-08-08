@@ -15,16 +15,16 @@ export const AirportPage = () => {
     const airportId = params.airportId
 
     return (
-        <>
+        <div className="airportPage">
             <AirportHeader airportId={airportId}/>
+            <AirportMaps airportId={airportId}/>
             <AirportWeather airportId={airportId}/>
             <AirportFrequencies airportId={airportId}/>
             <AirportRunways airportId={airportId}/>
             <AirportNotams airportId={airportId}/>
             <AirportChartSupplement airportId={airportId}/>
             <AirportDiagram airportId={airportId}/>
-            <AirportMaps airportId={airportId}/>
             <AirportComments airportId={airportId}/>
-        </>
+        </div>
     )
 }

@@ -1,3 +1,21 @@
+/* apply css styling to large component blocks. e.g., to "Airport Comments" */
+
+.airportPage {
+  background-color: #ecdac9;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* leftover from create-react-app */
+
+
 /* .App {
   text-align: center;
 }
@@ -37,8 +55,6 @@
   }
 } */
 
-.form-group {
+/* .form-group {
   border: none;
-}
-
-/* apply css styling to large component blocks. e.g., to "Airport Comments" */
+} */

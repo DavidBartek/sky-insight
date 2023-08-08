@@ -1,4 +1,5 @@
 import { googleAPIKey } from "../../../GoogleAPIKey"
+import { MdMap } from "react-icons/md"
 
 // https://developers.google.com/maps/documentation/embed/embedding-map
 
@@ -16,15 +17,16 @@ export const GoogleView = ({airportId, latitudeSecs, longitudeSecs, setMapView})
         <div className="map__container">
             <div className="map__image">
                 <iframe
-                    style={{width: '450px', height: '350px', frameborder: '0'}}
+                    className="map__styling--satellite"
                     referrerPolicy="no-referrer-when-downgrade"
                     // src={`https://www.google.com/maps/embed/v1/place?key=${googleAPIKey}&q=${airportId}+airport&maptype=satellite&zoom=11`}
-                    src={`https://www.google.com/maps/embed/v1/view?key=${googleAPIKey}&center=${latitudeSecs},${longitudeSecs}&maptype=satellite&zoom=11`}
+                    src={`https://www.google.com/maps/embed/v1/view?key=${googleAPIKey}&center=${latitudeSecs},${longitudeSecs}&maptype=satellite&zoom=13`}
                     allowFullScreen>
                 </iframe>
+                <div className="map__fade"></div>
             </div>
             <button className="map__button" onClick={handleMapButton}>
-            View Sectional Chart
+                <MdMap />
             </button>
         </div>
     )

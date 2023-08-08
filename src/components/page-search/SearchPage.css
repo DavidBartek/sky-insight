@@ -91,12 +91,3 @@
 .searchBar__result:hover {
     background-color: #efefef;
 }
-  
-@keyframes fadeIn {
-from {
-    opacity: 0;
-}
-to {
-    opacity: 1;
-}
-}

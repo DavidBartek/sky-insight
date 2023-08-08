@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { fetchAirportInfo } from "../../../DataAccess"
 import { SectionalView } from "./SectionalView"
 import { GoogleView } from "./GoogleView"
+import "./AirportMaps.css"
 
 export const AirportMaps = ({airportId}) => {
 
