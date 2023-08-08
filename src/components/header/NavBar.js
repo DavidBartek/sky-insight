@@ -4,12 +4,15 @@ import { useState } from "react"
 import { NavBarHamburger } from "./NavBarHamburger"
 import { useRef } from "react"
 import { useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 export const NavBar = () => {
     
     const [hamburgerOpen, setHamburgerOpen] = useState(false)
     const targetRef = useRef(null)
+
+    const params = useParams()
+    const searchPageChecker = params["*"]
     
     useEffect(
         () => {
@@ -40,22 +43,24 @@ export const NavBar = () => {
     if (hamburgerOpen === false) {
         return (
             <div className="navbar">
+                {searchPageChecker === "search" ? <div className="navbar__logoContainer"></div> : 
                 <div className="navbar__logoContainer">
                     <Link to="/search">
                         <img className="navbar__logo" src="/SkyInsight_ecdac9.svg"></img>
                     </Link>
-                </div>
+                </div> }
                 <button className="navbar__hamburger--closed" onClick={(e) => handleHamburgerOpen(e)}><BiMenu /></button>
             </div>
         )
     } else {
         return (
             <div className="navbar">
+                {searchPageChecker === "search" ? <div className="navbar__logoContainer"></div> : 
                 <div className="navbar__logoContainer">
                     <Link to="/search">
                         <img className="navbar__logo" src="/SkyInsight_ecdac9.svg"></img>
                     </Link>
-                </div>
+                </div> }
                 <button className="navbar__hamburger--open" ref={targetRef} onClick={(e) => handleHamburgerClosed(e)}><BiMenu /></button>
                 <NavBarHamburger setHamburgerOpen={setHamburgerOpen}/>
             </div>

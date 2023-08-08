@@ -1,3 +1,26 @@
+.airport__weather {
+    background-color: #e5c2a9;
+    height: 100vh;
+}
+
+.weather__header {
+    margin: 0;
+    padding: 0;
+    font-size: 90px;
+    font-weight: 900;
+    text-align: left;
+    color: #273439;
+}
+
+.weather__button {
+    display: block;
+    height: 100px;
+    width: 100px;
+    background-color: #fbf9f7;
+    padding: 1rem;
+    border-radius: 50%;
+}
+
 .metar__data--VFR,
 .taf__data--VFR {
     color: #1abe07;

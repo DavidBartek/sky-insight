@@ -1,20 +1,35 @@
+.searchPage {
+    height: 92vh
+
+}
+
+.searchPage__title {
+    margin-top: 20vh
+}
+
 .searchPage__title--header {
-    font-style: italic;
-    font-weight: 900;
-    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
     animation: fadeIn 1s ease-in-out;
 }
 
 .searchPage__title--subheader {
+    color: #e38260;
+    font-size: x-large;
     font-style: italic;
     font-weight: 400;
     text-align: center;
+    padding-left: 20%;
+    margin-top: -.5rem;
+    margin-bottom: 1rem;
     animation: fadeIn 1s ease-in-out;
   }
 
 .search__bar {
-    padding-top: 20vh;
-    width: 40%;
+    width: 45%;
+    min-width: 200px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -36,7 +51,8 @@
 }
 
 .searchBar__input--icon {
-    color: royalblue;
+    color: #e38260;
+    font-size: large;
     animation: fadeIn 1s ease-in-out;
 }
 
@@ -59,7 +75,7 @@
     text-align: center;
     background-color: transparent;
     border-radius: 5px;
-    border-color: royalblue;
+    border-color: #e38260;
     animation: fadeIn 1s ease-in-out;
 }
 
@@ -68,7 +84,8 @@
 }
 
 .searchBar__button--icon {
-    color: royalblue;
+    color: #e38260;
+    font-size: large;
     animation: fadeIn 1s ease-in-out;
 }
 

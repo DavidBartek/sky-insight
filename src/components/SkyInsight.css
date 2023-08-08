@@ -1,7 +1,7 @@
 /* apply css styling to large component blocks. e.g., to "Airport Comments" */
 
 .airportPage {
-  background-color: #ecdac9;
+  background-color: #e5c2a9;
 }
 
 /* .floatingHeader {
@@ -35,7 +35,7 @@
   z-index: 3;
   min-width: 47px;
   color: #273439;
-  background-color: #e9c65d;
+  background-color: #fbf9f7;
   border-radius: 30px;
   padding: .25em;
   padding-left: 0;
@@ -54,7 +54,7 @@
 
 .floatingHeader__icon:hover {
   /* background-color: #9eaba7; */
-  background-color: #dbac1c;
+  background-color: #cbcbcb;
   /* padding: .1em; */
   padding: .2em;
   border-radius: 100%;
