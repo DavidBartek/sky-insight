@@ -50,7 +50,7 @@ export const AirportMaps = ({airportId}) => {
     if (!latitudeSecs || !longitudeSecs) {
         return (
             <div className="airport__map">
-                <div>Map not available</div>
+                <div></div>
             </div>
         )
     } else if (mapView === "sectional") {

@@ -39,7 +39,7 @@
     pointer-events: none;
 }
 
-.map__button {
+/* .map__button {
     position: absolute;
     bottom: 75%;
     left: 92%;
@@ -54,8 +54,29 @@
 
 .map__button:hover {
     bottom: 75%;
-    left: 91%;
-    padding: 1.5rem;
+    left: 91.5%;
+    padding: 1.25rem;
+    font-size: larger;
+    box-shadow: 5px 5px 10px #273439;
+} */
+
+.map__button {
+    position: absolute;
+    bottom: 75%;
+    right: 92%;
+    border-radius: 100%;
+    padding: 1rem;
+    color: #273439;
+    background-color: #fbf9f7;
+    font-size: large;
+    box-shadow: 1px 1px 10px #273439;
+    transition: 0.25s;
+}
+
+.map__button:hover {
+    bottom: 75%;
+    right: 91.5%;
+    padding: 1.25rem;
     font-size: larger;
     box-shadow: 5px 5px 10px #273439;
 }

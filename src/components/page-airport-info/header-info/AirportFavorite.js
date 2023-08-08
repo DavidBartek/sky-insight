@@ -4,6 +4,7 @@ import { BsBookmarkStar} from "react-icons/bs"
 import { BsInfoCircle } from "react-icons/bs"
 import { GrClose } from "react-icons/gr"
 import { addFavoriteAirport, deleteFavoriteAirport, fetchFavoriteAirportSingle, } from "../../../DataAccess"
+import { useRef } from "react"
 
 export const AirportFavorite = ({airportId}) => {
 

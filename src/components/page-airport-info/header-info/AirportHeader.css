@@ -6,8 +6,9 @@
 
 .loadingGraphic {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50vh;
+    left: 50vh;
+    height: 100vh;
     transform: translate(-50%, -50%);
 }
 
@@ -52,7 +53,6 @@
     border: 0;
     padding: 0;
     margin: 0;
-    margin-left: -1.5rem;
     font-size: 50px;
     color: #dbac1c;
 }
@@ -75,7 +75,7 @@
     left: 60%;
     top: 20%;
     width: 20%;
-    align-items: stretch;
+    align-items: center;
     text-align: center;
     background-color: #fff7ef;
     border-radius: 5px;
@@ -114,12 +114,17 @@
     flex: 1;
     flex-basis: 0;
 }
+
 .infoBar__data--header {
     font-weight: bold;
+    /* font-family: "Futura LT"; */
+    font-family: "Poppins";
 }
 
 .infoBar__data {
     transition: .25s;
+    /* font-family: "Futura LT"; */
+    font-family: "Poppins";
 }
 
 .infoBar__data:hover {
