@@ -1,14 +1,45 @@
-.searchPage {
-    height: 92vh
+/* .searchPage {
+    background: linear-gradient(to bottom,
+    #e39776 0%, #e39776 5%,
+    #e38260 5%, #e38260 9%,
+    #ecdac9 9%, #ecdac9 31%,
+    #c3d1cd 32%, #c3d1cd 49%,
+    #e5c2a9 51%, #e5c2a9 67%,
+    #e39776 67%, #e39776 77%,
+    #d3846d 77%, #d3846d 80%,
+    #7c7d84 80%, #7c7d84 95%,
+    #273439 95%, #273439 100%);
+    height: 92vh;
+} */
 
+.searchPage {
+    height: 92vh;
+    background: linear-gradient(to bottom,
+    #e39776 0%, #e39776 5%,
+    #e38260 5%, #e38260 9%,
+    #ecdac9 9%, #ecdac9 24%,
+    #c3d1cd 26%, #c3d1cd 48%,
+    #e5c2a9 50%, #e5c2a9 67%,
+    #e39776 67%, #e39776 77%,
+    #d3846d 77%, #d3846d 80%,
+    #7c7d84 80%, #7c7d84 95%,
+    #273439 95%, #273439 100%);
+    background-size: 120% 120%;
+    animation: climb 2s cubic-bezier(.12,.63,.26,.96);
+}
+
+@keyframes climb {
+    0%{background-position:50% 100%}
+    100%{background-position:50% 0%}
 }
 
 .searchPage__title {
-    margin-top: 20vh
+    position: relative;
 }
 
 .searchPage__title--header {
     display: block;
+    padding-top: 25vh;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
@@ -16,16 +47,21 @@
 }
 
 .searchPage__title--subheader {
-    color: #e38260;
-    font-size: x-large;
+    color: #d3846d;
+    font-size: 24px;
     font-style: italic;
-    font-weight: 400;
+    font-weight: 800;
     text-align: center;
     padding-left: 20%;
     margin-top: -.5rem;
     margin-bottom: 1rem;
     animation: fadeIn 1s ease-in-out;
+    transition: .25s
   }
+
+.searchPage__title--subheader:hover {
+    text-shadow: 1px 1px 5px #fbf9f7;
+}
 
 .search__bar {
     width: 45%;
@@ -39,7 +75,7 @@
 }
 
 .searchBar__wrapper {
-    background-color: white;
+    background-color: #fbf9f7;
     width: 100%;
     border-radius: 10px;
     height: 2.5rem;
@@ -48,6 +84,11 @@
     display: flex;
     align-items: center;
     animation: fadeIn 1s ease-in-out;
+    transition: .25s
+}
+
+.searchBar__wrapper:hover {
+    box-shadow: 0px 0px 15px #7c7d84;
 }
 
 .searchBar__input--icon {
@@ -91,13 +132,13 @@
 
 .searchBar__results {
     width: 100%;
-    background-color: white;
+    background-color: #fbf9f7;
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 8px #ddd;
     border-radius: 10px;
     margin-top: 1rem;
-    max-height: 300px;
+    max-height: 220px;
     overflow-y: scroll
 }
 
