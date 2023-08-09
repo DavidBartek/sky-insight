@@ -9,12 +9,14 @@
     top: 50%;
     left: 80%;
     transform: translate(-50%, -50%);
-    border: #aaa 1px solid;
+    /* border: #aaa 1px solid; */
     border-radius: 10px;
     background-color: #fbf9f7;
+    box-shadow: 0 0 7px #aaa;
     opacity: .97;
     width: 50vh;
     padding: 1rem;
+    animation: fadeIn .2s ease-in-out;
 }
 
 .comments__close {

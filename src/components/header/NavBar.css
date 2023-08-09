@@ -39,11 +39,12 @@
     right: 1.5%;
     z-index: 1;
     width: 8%;
+    min-width: 125px;
     background-color: #fbf9f7;
     color: #273439;
     font-size: larger;
     box-shadow: 3px 3px 10px #273439;
-    padding: 1rem;
+    padding: .5rem;
     border-radius: 5px;
     animation: fadeIn .25s ease-in-out
 }
@@ -55,7 +56,7 @@
     padding-top: .25rem;
     padding-bottom: .25rem;
     padding-left: .5rem;
-    padding-right: .5rem;
+    padding-right: .75rem;
 }
 
 .navbar__link:hover {

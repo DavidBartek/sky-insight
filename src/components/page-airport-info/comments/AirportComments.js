@@ -1,5 +1,4 @@
-import { useEffect } from "react"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { fetchComments } from "../../../DataAccess"
 import { Comment } from "./Comment"
 import { AddCommentForm } from "./AddCommentForm"
@@ -9,6 +8,7 @@ import "./AirportComments.css"
 export const AirportComments = ({airportId, showComments, setShowComments}) => {
     
     const [comments, setComments] = useState([])
+
 
     const getAllComments = () => {
         fetchComments(airportId)

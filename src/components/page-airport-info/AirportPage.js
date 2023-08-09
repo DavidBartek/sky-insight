@@ -9,8 +9,7 @@ import { AirportChartSupplement } from "./chart-supplement/AirportChartSupplemen
 import { AirportDiagram } from "./airport-diagram/AirportDiagram"
 import { AirportMaps } from "./maps/AirportMaps"
 import { FloatingHeader } from "./FloatingHeader"
-import { useRef } from "react"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 export const AirportPage = () => {
     
