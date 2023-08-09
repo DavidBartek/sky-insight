@@ -10,21 +10,23 @@ import { AirportDiagram } from "./airport-diagram/AirportDiagram"
 import { AirportMaps } from "./maps/AirportMaps"
 import { FloatingHeader } from "./FloatingHeader"
 import { useRef } from "react"
+import { useState } from "react"
 
 export const AirportPage = () => {
     
     const params = useParams()
     const airportId = params.airportId
 
+    const [showComments, setShowComments] = useState(false)
+
     const top = useRef()
     const weather = useRef()
     const info = useRef()
     const docs = useRef()
-    const comments = useRef()
 
     return (
         <div className="airportPage">
-            <FloatingHeader top={top} weather={weather} info={info} docs={docs} comments={comments}/>
+            <FloatingHeader top={top} weather={weather} info={info} docs={docs} showComments={showComments} setShowComments={setShowComments}/>
             <div className="headerAndMaps" ref={top}>
                 <AirportHeader airportId={airportId}/>
                 <AirportMaps airportId={airportId}/>
@@ -41,9 +43,7 @@ export const AirportPage = () => {
                 <AirportChartSupplement airportId={airportId}/>
                 <AirportDiagram airportId={airportId}/>
             </div>
-            <div className="comments" ref={comments}>
-                <AirportComments airportId={airportId} name="airportComments"/>
-            </div>
+            <AirportComments airportId={airportId} showComments={showComments} setShowComments={setShowComments} name="airportComments"/>
         </div>
     )
 }

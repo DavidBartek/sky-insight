@@ -1,26 +1,75 @@
+.comments__hidden {
+    height: 0px;
+    width: 0px;
+    background-color: transparent;
+}
+
 .comments {
+    position: fixed;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
     border: #aaa 1px solid;
+    border-radius: 10px;
+    background-color: #fbf9f7;
+    opacity: .97;
     width: 50vh;
     padding: 1rem;
 }
 
+.comments__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: larger;
+}
+
+.comments__close:hover {
+    background-color: #aaa;
+}
+
 .comments__header {
-    margin: 1rem;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 600;
+    padding: 1rem;
     margin-top: 0;
 }
 
 .commentForm {
     display: flex;
     flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.input__wrapper--comments {
+    width: 100%;
+    background-color: #fbf9f7;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    height: 2.5rem;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.comments__box--empty {
+    margin: 1rem;
+    font-style: italic;
 }
 
 .comments__box {
     display: flex;
     flex-direction: column;
+    max-height: 60vh;
+    overflow: auto;
 }
 
 .comment__container { 
-    border: black 1px solid;
+    background-color: #fbf9f7;
+    border: 1px solid #dbac1c;
+    border-radius: 10px;
     margin: 1rem;
     padding: 1rem;
 }
@@ -46,6 +95,10 @@
     justify-content: space-between;
 }
 
+.comment__editDate {
+    font-style: italic;
+}
+
 .comment__editAndDeleteButtons {
     display: flex;
     justify-content: flex-end;
@@ -53,38 +106,53 @@
 }
 
 .comment__editButton,
-.comment__deleteButton {
+.comment__deleteButton,
+.comment__exitEditMode {
     margin-left: 1rem;
+    padding-left: 5px;
     height: 25px;
     width: 30px;
     text-align: center;
+    font-size: larger;
     background-color: #ddd;
     border-radius: 3px;
-    border: 1px solid #eee;
 }
 
 .comment__editButton:hover,
-.comment__deleteButton:hover {
+.comment__deleteButton:hover,
+.comment__exitEditMode:hover {
     cursor: pointer;
     background-color: #bbb;
 }
 
-.starButtonContainer{
+.starButtonContainer {
     display: flex;
+    margin-top: 1rem;
+    align-self: flex-end;
+}
+
+.starButtonContainer--edit {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.star-rating {
+    margin-right: .5rem;
 }
 
 .starOn {
     background-color: transparent;
     border: none;
     outline: none;
-    color: royalblue
+    color: #dbac1c;
 }
 
 .starOff {
     background-color: transparent;
     border: none;
     outline: none;
-    color: #bbb
+    color: #bbb;
 }
 
 .starOnClick {
@@ -93,7 +161,7 @@
     background-color: transparent;
     border: none;
     outline: none;
-    color: royalblue
+    color: #dbac1c;
 }
 
 .starOffClick {
@@ -107,17 +175,29 @@
 
 .commentForm__button {
     cursor: pointer;
-    font-size: medium;
+    font-size: x-large;
     font-weight: 900;
-    text-align: center;
-    background-color: #ddd;
     border-radius: 3px;
-    border: 1px solid #eee;
     height: 25px;
     width: 25px;
+    color: #aaa;
+    text-align: center;
     align-self: center;
 }
 
 .commentForm__button:hover {
-    background-color: #bbb;
+    color: #273439;
+    background-color: #ccc;
+}
+
+.commentEditForm__button {
+    background-color: #e39776;
+    color: white;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    border-radius: 5px;
+}
+
+.commentEditForm__button:hover {
+    background-color: #e38260;
 }

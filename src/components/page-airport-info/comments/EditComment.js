@@ -33,23 +33,26 @@ export const EditComment = ({id, faaId, datePosted, currentComment, rating, edit
         <form className="commentEditForm" onSubmit={(e) => handleSubmitClick(e)}>
             
             <fieldset className="form-group">
-                <textarea
-                    type="text"
-                    className="commentEditForm__textarea"
-                    name="commentEditForm__input"
-                    placeholder={editedComment.comment}
-                    value={editedComment.comment}
-                    onChange={
-                        (e) => {
-                            let copy = {...editedComment}
-                            copy.comment = e.target.value
-                            setEditedComment(copy)
+                <label className="form__subhead">Edit comment below.</label>
+                <div className="input__wrapper--comments">
+                    <input
+                        type="text"
+                        className="input__form"
+                        name="commentEditForm__input"
+                        placeholder={editedComment.comment}
+                        value={editedComment.comment}
+                        onChange={
+                            (e) => {
+                                let copy = {...editedComment}
+                                copy.comment = e.target.value
+                                setEditedComment(copy)
+                            }
                         }
-                    }
-                />
+                    />
+                </div>
             </fieldset>
                         
-            <div className="starButtonContainer">
+            <div className="starButtonContainer--edit">
                 <AddCommentStar newComment={editedComment} updateComment={setEditedComment} />
                 <button className="commentEditForm__button" type="submit">Submit</button>
 

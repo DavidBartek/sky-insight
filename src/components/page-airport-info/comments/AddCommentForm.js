@@ -8,6 +8,7 @@ import { AddCommentStar } from "./AddCommentStar"
 import { AddComment } from "./AddComment"
 import { postComment } from "../../../DataAccess"
 import { useEffect } from "react"
+import { BiSolidCommentAdd } from "react-icons/bi"
 
 export const AddCommentForm = ({faaId, getAllComments}) => {
     
@@ -55,17 +56,11 @@ export const AddCommentForm = ({faaId, getAllComments}) => {
     
     return (
         <form className="commentForm" onSubmit={(e) => handleSubmitClick(e)}>
-            
             <AddComment newComment={newComment} updateComment={updateComment} />
-                
             <div className="starButtonContainer">
-
                 <AddCommentStar newComment={newComment} updateComment={updateComment}/>
-
-                <button className="commentForm__button" type="submit">+</button>
-
+                <button className="commentForm__button" type="submit"><BiSolidCommentAdd /></button>
             </div>
-
         </form>
     )
 }

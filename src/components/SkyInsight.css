@@ -1,6 +1,7 @@
 /* apply css styling to large component blocks. e.g., to "Airport Comments" */
 
 .airportPage {
+  position: relative;
   background-color: #e5c2a9;
 }
 
