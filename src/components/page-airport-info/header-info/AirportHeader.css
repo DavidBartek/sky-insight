@@ -1,17 +1,14 @@
+.loadingGraphic {
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .airport__header {
     text-align: center;
     position: relative;
     animation: fadeIn 1s ease-in-out;
     background-color: #ecdac9;
-}
-
-.loadingGraphic {
-    position: absolute;
-    top: 50vh;
-    left: 50vh;
-    height: 100vh;
-    transform: translate(-50%, -50%);
-    background-color: #e5c2a9;
 }
 
 .title__container {

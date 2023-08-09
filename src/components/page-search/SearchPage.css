@@ -35,6 +35,7 @@
 
 .searchPage__title {
     position: relative;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .searchPage__title--header {
@@ -43,19 +44,17 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    animation: fadeIn 1s ease-in-out;
 }
 
 .searchPage__title--subheader {
     color: #d3846d;
-    font-size: 24px;
+    font-size: 1.6vw;
     font-style: italic;
     font-weight: 800;
     text-align: center;
     padding-left: 20%;
     margin-top: -.5rem;
     margin-bottom: 1rem;
-    animation: fadeIn 1s ease-in-out;
     transition: .25s
   }
 
@@ -71,7 +70,7 @@
     flex-direction: column;
     align-items: center;
     min-width: 200px;
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .searchBar__wrapper {
@@ -83,7 +82,6 @@
     box-shadow: 0px 0px 8px #ddd;
     display: flex;
     align-items: center;
-    animation: fadeIn 1s ease-in-out;
     transition: .25s
 }
 
@@ -94,7 +92,6 @@
 .searchBar__input--icon {
     color: #e38260;
     font-size: large;
-    animation: fadeIn 1s ease-in-out;
 }
 
 .searchBar__input {
@@ -104,7 +101,6 @@
     font-size: 1.25rem;
     width: 100%;
     margin-left: 5px;
-    animation: fadeIn 1s ease-in-out;
 }
 
 .searchBar__input:focus {
@@ -117,7 +113,6 @@
     background-color: transparent;
     border-radius: 5px;
     border-color: #e38260;
-    animation: fadeIn 1s ease-in-out;
 }
 
 .searchBar__button:hover {
@@ -127,7 +122,6 @@
 .searchBar__button--icon {
     color: #e38260;
     font-size: large;
-    animation: fadeIn 1s ease-in-out;
 }
 
 .searchBar__results {

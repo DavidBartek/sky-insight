@@ -1,6 +1,20 @@
 const localAPI = `http://localhost:8088`
 const expressServer = `http://localhost:9001`
 
+// Login - fetches specified email
+
+export const fetchLogin = (email) => {
+    return fetch(`${localAPI}/users?email=${email}`)
+        .then((res) => res.json())
+        .then(foundUsers => {
+            return foundUsers
+        })
+        .catch((error) => {
+            console.error(`Error fetching user data:`, error)
+            throw error
+        })
+}
+
 // Search Bar - fetches result suggestions to display to user
 // pulls from json-server
 

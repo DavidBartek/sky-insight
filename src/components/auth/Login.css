@@ -1,0 +1,126 @@
+/* .background__container {
+    position: relative;
+    background: linear-gradient(to bottom,
+    #e39776 0%, #e39776 5%,
+    #e38260 5%, #e38260 9%,
+    #ecdac9 9%, #ecdac9 31%,
+    #c3d1cd 32%, #c3d1cd 49%,
+    #e5c2a9 51%, #e5c2a9 67%,
+    #e39776 67%, #e39776 77%,
+    #d3846d 77%, #d3846d 80%,
+    #7c7d84 80%, #7c7d84 95%,
+    #273439 95%, #273439 100%);
+    height: 100vh;
+} */
+
+.background__container {
+    position: relative;
+    background: linear-gradient(0deg, #7c7d84, #e39776, #ecdac9, #e5c2a9, #c3d1cd);
+    background-size: 1000% 1000%;
+    height: 100vh;
+    width: 100%;
+    animation: background-wash 10s ease-in infinite;
+}
+
+@keyframes background-wash {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+
+.background__logo {
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+}
+
+.login__container {
+    position: absolute;
+    /* left: 80%; */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    min-width: 400px;
+    background: #fbf9f7c4;
+    box-shadow: 0 0 5px #fbf9f7;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.login__logo {
+    padding-bottom: 2rem;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+}
+
+.form__subhead {
+    align-self: flex-start;
+}
+
+.input__wrapper {
+    width: 100%;
+    background-color: #fbf9f7;
+    border-radius: 10px;
+    height: 2.5rem;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.input__icon {
+    font-size: x-large;
+}
+
+.input__form {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    margin-left: 5px;
+}
+
+.input__form:focus {
+    outline: none;
+}
+
+.form__button {
+    width: 100%;
+    border-radius: 20px 20px 20px 20px;
+    height: 2.5rem;
+    margin-top: 1rem;
+    background-color: #e38260;
+    color: #fbf9f7
+}
+
+.form__button:hover {
+    background-color: #d9785a;
+}
+
+.form__link {
+    margin-top: 1.5rem;
+}
+
+.form__link:hover {
+    font-weight: bold;
+}
+
+.register__header {
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-style: italic;
+}

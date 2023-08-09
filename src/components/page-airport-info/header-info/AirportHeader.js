@@ -65,17 +65,15 @@ export const AirportHeader = ({airportId}) => {
         return (
             <>
                 {isLoading ? (
-                    <div className="airport__header">
-                        <ThreeDots 
-                            className="loadingGraphic"
-                            height="80" 
-                            width="80" 
-                            radius="9"
-                            color="#e38260" 
-                            ariaLabel="three-dots-loading"
-                            visible={true}
-                        />
-                    </div>
+                    <ThreeDots 
+                        className="loadingGraphic"
+                        height="80" 
+                        width="80" 
+                        radius="9"
+                        color="#e38260" 
+                        ariaLabel="three-dots-loading"
+                        visible={true}
+                    />
                 ) : (
                 <div className="airport__header">
                     <div className="header__container">
