@@ -61,7 +61,8 @@
   border-radius: 100%;
 }
 
-.headerAndMaps {
+.headerAndMaps,
+.weather {
   height: 100vh;
 }
 

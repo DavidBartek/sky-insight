@@ -56,10 +56,13 @@
     color: #dbac1c;
 }
 
-.favorite__button--add:hover,
+.favorite__button--add:hover {
+    color: #a27f15;
+    cursor: cell;
+}
+
 .favorite__button--remove:hover {
     color: #a27f15;
-    cursor: pointer;
 }
 
 .modal__invisible {

@@ -1,24 +1,43 @@
+
+
 .airport__weather {
-    background-color: #e5c2a9;
-    height: 100vh;
+    position: relative;
+}
+
+.weather__background {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    z-index: 0;
 }
 
 .weather__header {
+    /* position: absolute; */
     margin: 0;
     padding: 0;
     font-size: 90px;
     font-weight: 900;
     text-align: left;
     color: #273439;
+    z-index: 1;
 }
 
-.weather__button {
-    display: block;
-    height: 100px;
-    width: 100px;
-    background-color: #fbf9f7;
+.weather__container {
+    position: absolute;
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    background-color: #273439;
     padding: 1rem;
-    border-radius: 50%;
+    border-radius: 10px;
+    color: #fbf9f7;
+    transform: translate(-50%, 150px);
+    transition: all 0.3s ease-in-out;
+}
+
+.weather__metar.plainText {
+    text-align: center;
 }
 
 .metar__data--VFR,
@@ -28,7 +47,7 @@
 
 .metar__data--MVFR,
 .taf__data--MVFR {
-    color: #1c56cf;
+    color: #558bff;
 }
 
 .metar__data--IFR,
@@ -39,4 +58,62 @@
 .metar__data--LIFR,
 .taf__data--LIFR {
     color: #fa04ff;
+}
+
+/* .weather__button {
+    position: absolute;
+    right: 30%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+    height: 100px;
+    width: 100px;
+    background-color: #fbf9f7;
+    padding: 1rem;
+    border-radius: 50%;
+    z-index: 4;
+} */
+
+.button__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 180px;
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, 25px);
+    font-weight: 700;
+}
+
+.plainText__toggle {
+    -webkit-appearance: none;
+    position: relative;
+    width: 50px;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #7c7d84;
+    transition: background .3s;
+    outline: none;
+    cursor: pointer;
+}
+
+.plainText__toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 1.25rem;
+    width: 1.25rem;
+    background-color: rgb(255, 255, 255);
+    transition: left .3s;
+}
+
+.plainText__toggle:checked {
+    background-color: #e38260;
+}
+
+.plainText__toggle:checked::after {
+    left: 70%;
 }

@@ -136,6 +136,7 @@ export const AirportWeather = ({airportId}) => {
     } else if (!plainTextMode && (!currentTAF.response?.data[0].TAF && !currentMETAR.response?.data[0].METAR)) {
         return (
             <div className="airport__weather">
+                <img className="weather__background" src="/WeatherBackground.svg" />
                 <h3 className="weather__header">Current and Forecasted Weather</h3>
                 <div className="weather__container">
                     <div className="weather__metar">
@@ -152,8 +153,8 @@ export const AirportWeather = ({airportId}) => {
     } else if (!plainTextMode && !currentTAF.response?.data[0].TAF) {
         return (
             <div className="airport__weather">
+                <img className="weather__background" src="/WeatherBackground.svg" />
                 <h3 className="weather__header">Current and Forecasted Weather</h3>
-                <PlainTextButton plainTextMode={plainTextMode} setPlainTextMode={setPlainTextMode}/>
                 <div className="weather__container">
                     <div className="weather__metar">
                         <div className="metar__title">METAR: </div>
@@ -164,13 +165,14 @@ export const AirportWeather = ({airportId}) => {
                         <div className="taf__data--rawText">No TAF reported.</div>
                     </div>
                 </div>
+                <PlainTextButton plainTextMode={plainTextMode} setPlainTextMode={setPlainTextMode}/>
             </div>
         )
     } else if (!plainTextMode && currentTAF.response?.data[0].TAF) {
         return (
             <div className="airport__weather">
+                <img className="weather__background" src="/WeatherBackground.svg" />
                 <h3 className="weather__header">Current and Forecasted Weather</h3>
-                <PlainTextButton plainTextMode={plainTextMode} setPlainTextMode={setPlainTextMode}/>
                 <div className="weather__container">
                     <div className="weather__metar">
                         <div className="metar__title">METAR: </div>
@@ -181,15 +183,16 @@ export const AirportWeather = ({airportId}) => {
                         <div className="taf__data--rawText">{currentTAF.response?.data[0].TAF[0].raw_text[0]}</div>
                     </div>
                 </div>
+                <PlainTextButton plainTextMode={plainTextMode} setPlainTextMode={setPlainTextMode}/>
             </div>
         )
     } else if (plainTextMode && !currentTAF.response?.data[0].TAF) {
         return (
             <div className="airport__weather">
+                <img className="weather__background" src="/WeatherBackground.svg" />
                 <h3 className="weather__header">Current and Forecasted Weather</h3>
-                <PlainTextButton plainTextMode={plainTextMode} setPlainTextMode={setPlainTextMode}/>
                 <div className="weather__container">
-                    <div className="weather__metar">
+                    <div className="weather__metar plainText">
                         <div className="metar__title">METAR: </div>
                         <div className={determineMETARClass(currentMETAR.response?.data[0].METAR[0].flight_category[0])}>
                             <div>Time: {convertTimestamp(currentMETAR.response?.data[0].METAR[0].observation_time[0])}</div>
@@ -212,15 +215,16 @@ export const AirportWeather = ({airportId}) => {
                         </div>
                     </div>
                 </div>
+                <PlainTextButton plainTextMode={plainTextMode} setPlainTextMode={setPlainTextMode}/>
             </div>
         )
     } else if (plainTextMode && currentTAF.response?.data[0].TAF) {
         return (
             <div className="airport__weather">
+                <img className="weather__background" src="/WeatherBackground.svg" />
                 <h3 className="weather__header">Current and Forecasted Weather</h3>
-                <PlainTextButton plainTextMode={plainTextMode} setPlainTextMode={setPlainTextMode}/>
                 <div className="weather__container">
-                    <div className="weather__metar">
+                    <div className="weather__metar plainText">
                         <div className="metar__title">METAR: </div>
                         <div className={determineMETARClass(currentMETAR.response?.data[0].METAR[0].flight_category[0])}>
                             <div>Time: {convertTimestamp(currentMETAR.response?.data[0].METAR[0].observation_time[0])}</div>
@@ -262,6 +266,7 @@ export const AirportWeather = ({airportId}) => {
                         </div>
                     </div> */}
                 </div>
+                <PlainTextButton plainTextMode={plainTextMode} setPlainTextMode={setPlainTextMode}/>
             </div>
         )
     }
