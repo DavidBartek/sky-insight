@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react"
 import { deleteFavoriteAirport, fetchAirportInfo } from "../../DataAccess"
-import { TiDelete } from "react-icons/ti"
+import { GoBookmarkSlash } from "react-icons/go"
+import { RiArrowGoBackLine } from "react-icons/ri"
+import { AiOutlineDelete } from "react-icons/ai"
 import { useNavigate } from "react-router-dom"
+import { ThreeDots } from "react-loader-spinner"
 
 export const Favorite = ({favoriteId, faaId, getAllFavorites}) => {
     
     const [airportData, setAirportData] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
     const [latitudeSecs, setLatitudeSecs] = useState("")
     const [longitudeSecs, setLongitudeSecs] = useState("")
+    const [deleteConfirmMode, setDeleteConfirmMode] = useState(false)
     const navigate = useNavigate()
 
     useEffect(
@@ -17,6 +22,7 @@ export const Favorite = ({favoriteId, faaId, getAllFavorites}) => {
                     setAirportData(data)
                     setLatitudeSecs(convertDMSStrToDecStr(data.latitude_dms))
                     setLongitudeSecs(convertDMSStrToDecStr(data.longitude_dms))
+                    setIsLoading(false)
                 })
         },
         []
@@ -66,10 +72,16 @@ export const Favorite = ({favoriteId, faaId, getAllFavorites}) => {
         navigate(`/airports/${faaId}`)
     }
 
-    const handleDeleteFavorite = (e) => {
-        e.preventDefault()
+    const handleDeleteConfirmModeOn = () => {
+        setDeleteConfirmMode(true)
+    }
 
-        // console.log(favoriteId)
+    const handleDeleteConfirmModeOff = () => {
+        setDeleteConfirmMode(false)
+    }
+
+    const handleDeleteFavorite = () => {
+        // e.preventDefault()
 
         deleteFavoriteAirport(favoriteId)
 
@@ -78,17 +90,65 @@ export const Favorite = ({favoriteId, faaId, getAllFavorites}) => {
 
     if (!airportData) {
         return null
+    } else if (deleteConfirmMode === false) {
+        return (
+            <>
+                {isLoading ? (
+                    <ThreeDots 
+                        className="loadingGraphic"
+                        height="80" 
+                        width="80" 
+                        radius="9"
+                        color="#e38260" 
+                        ariaLabel="three-dots-loading"
+                        visible={true}
+                    />
+                ) : (
+                    <div className="favorites__favorite">
+                        <button className="favorite__delete" onClick={() => handleDeleteConfirmModeOn()}><GoBookmarkSlash /></button>
+                        <img className="favorite__image"
+                            src={`https://vfrmap.com/api?req=map&type=sectc&lat=${latitudeSecs}&lon=${longitudeSecs}&zoom=10&width=600&height=347`}
+                            onClick={navigateToAirport}
+                        />
+                        <div className="favorite__name">{airportNameString} ({faaId})</div>
+                        <div className="favorite__location">{locationString}</div>
+                    </div>
+                )}
+            </>
+        )
+    } else  if (deleteConfirmMode === true) {
+        return (
+            <>
+                {isLoading ? (
+                    <ThreeDots 
+                        className="loadingGraphic"
+                        height="80" 
+                        width="80" 
+                        radius="9"
+                        color="#e38260" 
+                        ariaLabel="three-dots-loading"
+                        visible={true}
+                    />
+                ) : (
+                    <div className="favorites__favorite">
+                        <div className="delete__confirmContainer">
+                            <div style={{fontWeight: 'bold'}}>Delete {faaId} from favorites</div>
+                            <div>Are you sure?</div>
+                            <div className="delete__iconsContainer">
+                                <button className="delete__confirmIcon undo" onClick={() => handleDeleteConfirmModeOff()}><RiArrowGoBackLine /></button>
+                                <button className="delete__confirmIcon confirm" onClick={() => handleDeleteFavorite()}><AiOutlineDelete /></button>
+                            </div>
+                        </div>
+                        <img className="favorite__image"
+                            src={`https://vfrmap.com/api?req=map&type=sectc&lat=${latitudeSecs}&lon=${longitudeSecs}&zoom=10&width=600&height=347`}
+                            onClick={navigateToAirport}
+                        />
+                        <div className="favorite__name">{airportNameString} ({faaId})</div>
+                        <div className="favorite__location">{locationString}</div>
+                    </div>
+                )}
+            </>
+        )
     }
-    return (
-        <div className="favorites__favorite">
-            <h3 className="favorite__name">{airportNameString} ({faaId})</h3>
-            <h4 className="favorite__location">{locationString}</h4>
-            <img
-                src={`https://vfrmap.com/api?req=map&type=sectc&lat=${latitudeSecs}&lon=${longitudeSecs}&zoom=10&width=450&height=350`}
-                style={{width: '250px', height: '200px', frameborder: '0'}}
-                onClick={navigateToAirport}
-            />
-            <button className="favorite__delete" onClick={(e) => {handleDeleteFavorite(e)}}><TiDelete /></button>
-        </div>
-    )
+    
 }

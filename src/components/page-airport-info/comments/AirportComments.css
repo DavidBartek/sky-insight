@@ -10,7 +10,7 @@
     left: 80%;
     transform: translate(-50%, -50%);
     /* border: #aaa 1px solid; */
-    border-radius: 10px;
+    border-radius: 10px 10px 0px 10px;
     background-color: #fbf9f7;
     box-shadow: 0 0 7px #aaa;
     opacity: .97;
@@ -31,7 +31,7 @@
 }
 
 .comments__header {
-    text-align: center;
+    text-align: left;
     font-size: x-large;
     font-weight: 600;
     padding: 1rem;
@@ -64,6 +64,8 @@
 .comments__box {
     display: flex;
     flex-direction: column;
+    border-top: 1.5px solid #bbb;
+    border-radius: 10px 0px 0px 0px;
     max-height: 60vh;
     overflow: auto;
 }
@@ -130,6 +132,7 @@
 .starButtonContainer {
     display: flex;
     margin-top: 1rem;
+    margin-bottom: .5rem;
     align-self: flex-end;
 }
 

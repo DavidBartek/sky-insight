@@ -1,0 +1,193 @@
+.profilePage {
+    height: 92vh;
+    background: linear-gradient(to bottom,
+    #e38260 0%, #e38260 3%,
+    #ecdac9 3%, #ecdac9 24%,
+    #c3d1cd 26%, #c3d1cd 48%,
+    #e5c2a9 50%, #e5c2a9 67%,
+    #e39776 67%, #e39776 77%,
+    #d3846d 77%, #d3846d 80%,
+    #7c7d84 80%, #7c7d84 95%,
+    #273439 95%, #273439 100%);
+    background-size: 115% 115%;
+    animation: fadeIn .5s ease-in
+}
+
+.profile__headerContainer {
+    padding-top: 2rem;
+}
+
+.profile__heading--main {
+    font-size: 5.18vw;
+    font-weight: 900;
+    font-style: italic;
+    color:#e38260
+}
+
+.profile__heading--favorites {
+    font-size: 42px;
+    font-weight: 900;
+    color: #273439;
+}
+
+.profile__subheading {
+    font-size: large;
+    font-style: italic;
+    margin-top: -1rem;
+    padding-left: .5rem;
+    color: #273439;
+}
+
+.profile__favorites {
+    padding-top: -1rem;
+    text-align: center;
+    min-width: 250px;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.favorites__container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-slide.active {
+    transform: translateX(0);
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-140%);
+    width: 40px;
+    height: 40px;
+    background-color: #2734399d;
+    border: none;
+    border-radius: 50%;
+    color: #fbf9f7;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    z-index: 3;
+}
+
+.carousel-button:hover {
+    background-color: #273439;
+}
+
+.prev-button {
+    left: 10px;
+}
+
+.next-button {
+    right: 10px;
+}
+
+.favorite__image {
+    position: relative;
+    width: 475px;
+    height: 275px;
+    margin-top: .8rem;
+    border-radius: 20px;
+    box-shadow: 0 0 8px #273439;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.favorite__image:hover {
+    box-shadow: 0 0 15px #273439;
+}
+
+.favorite__delete {
+    position: absolute;
+    right: 12%;
+    top: 5%;
+    background-color:#fbf9f7;
+    box-shadow: 0 0 5px #273439;
+    color: #273439;
+    padding: .75rem;
+    border-radius: 50%;
+    z-index: 4;
+    transition: .25s;
+}
+
+.favorite__delete:hover {
+    background-color: #e38260;
+    box-shadow: 2px 2px 15px #273439;
+}
+
+.favorite__name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #273439;
+}
+
+.favorite__location {
+    font-size: 20px;
+    font-style: italic;
+    color: #273439;
+}
+
+.delete__confirmContainer {
+    position: absolute;
+    right: 8%;
+    top: 1%;
+    background-color: #fbf9f7;
+    box-shadow: 2px 2px 5px #273439;
+    border-radius: 10px;
+    padding: 1rem;
+    z-index: 4;
+    transition: .3s
+}
+
+.delete__confirmContainer:hover {
+    box-shadow: 3px 3px 7px #273439;
+}
+
+.delete__iconsContainer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.delete__confirmIcon {
+    font-size: large;
+    color: #fbf9f7;
+    padding: .5rem;
+    border-radius: 50%;
+    transition: .25s;
+}
+
+.delete__confirmIcon.undo {
+    background-color: #7c7d84;
+}
+
+.delete__confirmIcon.undo:hover {
+    background-color: #273439;
+}
+
+.delete__confirmIcon.confirm {
+    background-color: #e39776;
+}
+
+.delete__confirmIcon.confirm:hover {
+    color: #273439;
+    background-color: #e38260;
+}
