@@ -28,20 +28,13 @@
     100%{background-position:50% 0%}
 }
 
-.background__logo {
-    position: absolute;
-    left: 35%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 500px;
-}
-
 .login__container {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 35%;
+    width: 25%;
+    height: 50%;
     min-width: 400px;
     background: #fbf9f7c4;
     box-shadow: 0 0 5px #fbf9f7;
@@ -53,16 +46,20 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     animation: fadeIn 1s ease-in-out;
 }
 
 .login__logo {
     padding-bottom: 2rem;
+    width: 100%;
 }
 
 .form__group {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding-bottom: 1rem;
 }
 
@@ -98,6 +95,7 @@
 
 .form__button {
     width: 100%;
+    border: none;
     border-radius: 20px 20px 20px 20px;
     height: 2.5rem;
     margin-top: 1rem;
