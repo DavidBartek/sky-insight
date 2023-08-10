@@ -12,6 +12,10 @@
 }
 
 .navbar__logo {
+    width: 98%;
+    transition: .25s;
+}
+.navbar__logo:hover {
     width: 100%;
 }
 
@@ -26,6 +30,10 @@
 
 .navbar__hamburger--closed {
     color: #ecdac9;
+}
+
+.navbar__hamburger--closed:hover {
+    color: #e5c2a9;
 }
 
 .navbar__hamburger--open {
