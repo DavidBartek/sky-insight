@@ -62,8 +62,25 @@
 }
 
 .headerAndMaps,
-.weather {
+.weather,
+.freqsRunwaysNotams {
   height: 100vh;
+}
+
+.freqsRunwaysNotams {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.freqsRunwaysContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.airport__notams {
+  margin: 3rem;
 }
 
 @keyframes fadeIn {

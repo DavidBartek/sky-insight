@@ -1,0 +1,38 @@
+.airport__frequencies,
+.airport__runways {
+    width: 20%;
+    background-color: #273439;
+    z-index: 1;
+    color: #fbf9f7;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.frequencies__header,
+.runways__header {
+    font-size: xx-large;
+}
+
+.frequencies__box,
+.runways__box {
+    max-height: 75vh;
+    overflow: auto;
+}
+
+.frequency__container,
+.runway__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 1px solid #7c7d84;
+    min-height: 50px;
+}
+
+.frequency__name,
+.runway__name {
+    font-weight: bold;
+}
+
+.runway__condition {
+    font-style: italic;
+}

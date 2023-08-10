@@ -1,19 +1,16 @@
-
-
 .airport__weather {
     position: relative;
 }
 
 .weather__background {
     position: absolute;
-    top: 0%;
+    top: -20%;
     left: 0%;
     width: 100%;
     z-index: 0;
 }
 
 .weather__header {
-    /* position: absolute; */
     margin: 0;
     padding: 0;
     font-size: 90px;
@@ -59,19 +56,6 @@
 .taf__data--LIFR {
     color: #fa04ff;
 }
-
-/* .weather__button {
-    position: absolute;
-    right: 30%;
-    top: 50%;
-    transform: translate(-50%, 50%);
-    height: 100px;
-    width: 100px;
-    background-color: #fbf9f7;
-    padding: 1rem;
-    border-radius: 50%;
-    z-index: 4;
-} */
 
 .button__container {
     display: flex;

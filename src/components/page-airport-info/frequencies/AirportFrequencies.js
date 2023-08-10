@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { fetchFrequencies } from "../../../DataAccess"
 import { Frequency } from "./Frequency"
+import "./AirportFrequencies.css"
 
 export const AirportFrequencies = ({airportId}) => {
     const [frequencyData, setFrequencyData] = useState([])

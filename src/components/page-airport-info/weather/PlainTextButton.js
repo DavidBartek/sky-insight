@@ -11,11 +11,6 @@ export const PlainTextButton = ({ plainTextMode, setPlainTextMode}) => {
     if (plainTextMode) {
         return (
             <div className="button__container">
-                {/* <button
-                    className="weather__button"
-                    onClick={() => handleExitPTClick()}>
-                        Raw Text
-                </button> */}
                 View raw data
                 <input
                     className="plainText__toggle on"
@@ -27,11 +22,6 @@ export const PlainTextButton = ({ plainTextMode, setPlainTextMode}) => {
     } else {
         return (
             <div className="button__container">
-                {/* <button 
-                    className="weather__button" 
-                    onClick={() => handlePTClick()}>
-                        Plain Text
-                </button> */}
                 View plain text
                 <input
                     className="plainText__toggle off"

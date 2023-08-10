@@ -20,9 +20,12 @@ export const Frequency = ({freqObj}) => {
         // Weather: ATIS, D-ATIS
         return (
             <div className="frequency__container">
-                {freqObj.FREQ_USE === "D-ATIS" ? <div className="frequency__name">Digital ATIS</div> : <div className="frequency__name">{freqObj.FREQ_USE}</div>}
+                <div className="frequency__nameAndUse">
+                    {freqObj.FREQ_USE === "D-ATIS" ? <div className="frequency__name">Digital ATIS</div> : <div className="frequency__name">{freqObj.FREQ_USE}</div>}
+                    {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                </div>
                 <div className="frequency__freq">{freqObj.FREQ}</div>
-                {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                
             </div>
         )
     
@@ -30,9 +33,12 @@ export const Frequency = ({freqObj}) => {
         // Weather: AWOS, ASOS
         return (
             <div className="frequency__container">
-                <div className="frequency__name">{freqObj.FACILITY_TYPE}</div>
+                <div className="frequency__nameAndUse">
+                    <div className="frequency__name">{freqObj.FACILITY_TYPE}</div>
+                    {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                </div>
                 <div className="frequency__freq">{freqObj.FREQ}</div>
-                {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                
             </div>
         )
 
@@ -40,9 +46,12 @@ export const Frequency = ({freqObj}) => {
         // Clearance Delivery
         return (
             <div className="frequency__container">
-                <div className="frequency__name">{convertStrToTitleCase(freqObj.TOWER_OR_COMM_CALL)} Clearance</div>
+                <div className="frequency__nameAndUse">
+                    <div className="frequency__name">{convertStrToTitleCase(freqObj.TOWER_OR_COMM_CALL)} Clearance</div>
+                    {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                </div>
                 <div className="frequency__freq">{freqObj.FREQ}</div>
-                {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                
             </div>
         )
     
@@ -50,9 +59,12 @@ export const Frequency = ({freqObj}) => {
         // Ramp Control
         return (
             <div className="frequency__container">
-                <div className="frequency__name">Ramp Control</div>
+                <div className="frequency__nameAndUse">
+                    <div className="frequency__name">Ramp Control</div>
+                    {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                </div>
                 <div className="frequency__freq">{freqObj.FREQ}</div>
-                {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                
             </div>
         )
 
@@ -60,9 +72,13 @@ export const Frequency = ({freqObj}) => {
         // Ground
         return (
             <div className="frequency__container">
-                <div className="frequency__name">{convertStrToTitleCase(freqObj.TOWER_OR_COMM_CALL)} Ground</div>
+                <div className="frequency__nameAndUse">
+                    <div className="frequency__name">{convertStrToTitleCase(freqObj.TOWER_OR_COMM_CALL)} Ground</div>
+                    {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                </div>
+                
                 <div className="frequency__freq">{freqObj.FREQ}</div>
-                {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                
             </div>
         )
 
@@ -70,10 +86,14 @@ export const Frequency = ({freqObj}) => {
         // Tower
         return (
             <div className="frequency__container">
-                <div className="frequency__name">{convertStrToTitleCase(freqObj.TOWER_OR_COMM_CALL)} Tower</div>
+                <div className="frequency__nameAndUse">
+                    <div className="frequency__name">{convertStrToTitleCase(freqObj.TOWER_OR_COMM_CALL)} Tower</div>
+                    {freqObj?.TOWER_HRS.startsWith("24") ? <div className="frequency__towerHours">24 hrs</div> : <div className="frequency__towerHours">{freqObj.TOWER_HRS} local</div>}
+                    {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                </div>
+                
                 <div className="frequency__freq">{freqObj.FREQ}</div>
-                {freqObj?.TOWER_HRS.startsWith("24") ? <div className="frequency__towerHours">24 hrs</div> : <div className="frequency__towerHours">{freqObj.TOWER_HRS} local</div>}
-                {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                
             </div>
         )
 
@@ -81,7 +101,10 @@ export const Frequency = ({freqObj}) => {
         // CTAF
         return (
             <div className="frequency__container">
-                <div className="frequency__name">CTAF</div>
+                <div className="frequency__nameAndUse">
+                    <div className="frequency__name">CTAF</div>
+                </div>
+                
                 <div className="frequency__freq">{freqObj.FREQ}</div>
             </div>
         )
@@ -90,9 +113,13 @@ export const Frequency = ({freqObj}) => {
         // UNICOM
         return (
             <div className="frequency__container">
-                <div className="frequency__name">{freqObj.FACILITY_TYPE}</div>
+                <div className="frequency__nameAndUse">
+                    <div className="frequency__name">{freqObj.FACILITY_TYPE}</div>
+                    {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                </div>
+                
                 <div className="frequency__freq">{freqObj.FREQ}</div>
-                {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                
             </div>
         )
 
@@ -101,6 +128,9 @@ export const Frequency = ({freqObj}) => {
         return ""
         // return (
         //     <div className="frequency__container">
+                // <div className="frequency__nameAndUse">
+
+                // </div>
         //         <div className="frequency__name">{convertStrToTitleCase(freqObj.PRIMARY_APPROACH_RADIO_CALL)} Approach/Departure</div>
         //         <div className="frequency__freq">{freqObj.FREQ}</div>
         //         {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
@@ -112,6 +142,9 @@ export const Frequency = ({freqObj}) => {
         return ""
         // return (
         //     <div className="frequency__container">
+        //         <div className="frequency__nameAndUse">
+
+                // </div>
         //         <div className="frequency__name">{convertStrToTitleCase(freqObj.PRIMARY_APPROACH_RADIO_CALL)} Approach</div>
         //         <div className="frequency__freq">{freqObj.FREQ}</div>
         //         {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
@@ -123,6 +156,9 @@ export const Frequency = ({freqObj}) => {
         return ""
         // return (
         //     <div className="frequency__container">
+                // <div className="frequency__nameAndUse">
+
+                // </div>
         //         <div className="frequency__name">{convertStrToTitleCase(freqObj.PRIMARY_DEPARTURE_RADIO_CALL)} Departure</div>
         //         <div className="frequency__freq">{freqObj.FREQ}</div>
         //         {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
@@ -133,9 +169,13 @@ export const Frequency = ({freqObj}) => {
         // Flight Service (GCO / RCO) - receiving only
         return (
             <div className="frequency__container">
-                <div className="frequency__name">Flight Service ({freqObj.FACILITY_TYPE}, R only)</div>
+                <div className="frequency__nameAndUse">
+                    <div className="frequency__name">Flight Service ({freqObj.FACILITY_TYPE}, R only)</div>
+                    {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                </div>
+                
                 <div className="frequency__freq">{freqObj.FREQ.slice(0, -1)}</div>
-                {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                
             </div>
         )
 
@@ -143,9 +183,13 @@ export const Frequency = ({freqObj}) => {
         // Flight Service (GCO / RCO)
         return (
             <div className="frequency__container">
-                <div className="frequency__name">Flight Service ({freqObj.FACILITY_TYPE})</div>
+                <div className="frequency__nameAndUse">
+                    <div className="frequency__name">Flight Service ({freqObj.FACILITY_TYPE})</div>
+                    {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                </div>
+                
                 <div className="frequency__freq">{freqObj.FREQ}</div>
-                {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                
             </div>
         )
 
@@ -153,9 +197,13 @@ export const Frequency = ({freqObj}) => {
         // Emergency
         return (
             <div className="frequency__container">
-                <div className="frequency__name">Emergency</div>
+                <div className="frequency__nameAndUse">
+                    <div className="frequency__name">Emergency</div>
+                    {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                </div>
+                
                 <div className="frequency__freq">{freqObj.FREQ}</div>
-                {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
+                
             </div>
         )
 
@@ -164,6 +212,9 @@ export const Frequency = ({freqObj}) => {
         return ""
         // return (
         //     <div className="frequency__container">
+                // <div className="frequency__nameAndUse">
+
+                // </div>
         //         <div className="frequency__name">{freqObj.FREQ_USE}</div>
         //         <div className="frequency__freq">{freqObj.FREQ}</div>
         //         {freqObj.SECTORIZATION.length > 0 ? <div className="frequency__sector">{freqObj.SECTORIZATION}</div> : ""}
@@ -171,12 +222,6 @@ export const Frequency = ({freqObj}) => {
         // )
     }
 }
-    
-    // Emergency "EMERG"
-
-    // RCO (Flight Service)
-    // FACILITY_TYPE === "GCO" "RCO"
-    // comments: FREQ_USE
 
     // Other
     // Freq use - freq - sectorization (likely commments string)
