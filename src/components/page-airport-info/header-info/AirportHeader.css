@@ -34,8 +34,8 @@
 .header__id {
     margin: 0;
     padding: 0;
-    margin-top: -4.25rem;
-    margin-bottom: -3rem;
+    margin-top: -2.5rem;
+    margin-bottom: -1rem;
     font-size: 160px;
     font-weight: 900;
     color: #e38260;
@@ -81,21 +81,31 @@
     text-align: center;
     background-color: #fff7ef;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px #273439;
+    box-shadow: 2px 2px 6px #273439;
     padding: 1em;
     animation: fadeIn .25s ease-in-out;
 }
 
 .icon__container {
     display: flex;
+    /* border: 1px black solid; */
     justify-content: space-between;
+    align-items: center;
+    font-size: x-large;
+}
+
+.icon__x {
+    align-self: center;
+    /* border: 1px solid black; */
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
 }
 
 .icon__x:hover {
-    margin: 0;
-    padding: 0;
-    background-color: #7c7d84;
-    border-radius: 100%;
+    background-color: #a5a6af;
+    border-radius: 5px;
 }
 
 .header__infoBar {

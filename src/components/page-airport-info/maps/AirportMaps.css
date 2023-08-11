@@ -64,6 +64,7 @@
     position: absolute;
     bottom: 75%;
     right: 92%;
+    border: none;
     border-radius: 100%;
     padding: 1rem;
     color: #273439;

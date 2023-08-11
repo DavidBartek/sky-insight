@@ -1,6 +1,6 @@
 .airport__frequencies,
 .airport__runways {
-    width: 20%;
+    width: 100%;
     background-color: #273439;
     z-index: 1;
     color: #fbf9f7;
@@ -15,8 +15,12 @@
 
 .frequencies__box,
 .runways__box {
-    max-height: 75vh;
+    max-height: 78vh;
     overflow: auto;
+}
+
+.runways__box {
+    max-height: 50vh;
 }
 
 .frequency__container,
@@ -36,3 +40,4 @@
 .runway__condition {
     font-style: italic;
 }
+

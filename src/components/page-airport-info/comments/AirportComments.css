@@ -21,6 +21,8 @@
 
 .comments__close {
     position: absolute;
+    background-color: transparent;
+    border: none;
     top: 1rem;
     right: 1rem;
     font-size: larger;
@@ -46,7 +48,7 @@
 }
 
 .input__wrapper--comments {
-    width: 100%;
+    width: 90%;
     background-color: #fbf9f7;
     border: 1px solid #aaa;
     border-radius: 10px;
@@ -113,12 +115,12 @@
 .comment__deleteButton,
 .comment__exitEditMode {
     margin-left: 1rem;
-    padding-left: 5px;
     height: 25px;
     width: 30px;
     text-align: center;
     font-size: larger;
     background-color: #ddd;
+    border: none;
     border-radius: 3px;
 }
 
@@ -179,6 +181,8 @@
 }
 
 .commentForm__button {
+    background-color: transparent;
+    border: none;
     cursor: pointer;
     font-size: x-large;
     font-weight: 900;
@@ -197,9 +201,13 @@
 
 .commentEditForm__button {
     background-color: #e39776;
+    font-size: 18px;
     color: white;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
     padding-left: .5rem;
     padding-right: .5rem;
+    border: none;
     border-radius: 5px;
 }
 

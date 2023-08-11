@@ -29,11 +29,17 @@
     padding: 1rem;
     border-radius: 10px;
     color: #fbf9f7;
+    font-size: x-large;
     transform: translate(-50%, 150px);
     transition: all 0.3s ease-in-out;
 }
 
+.weather__metar {
+    margin-bottom: 1rem;
+}
+
 .weather__metar.plainText {
+    margin-bottom: 0;
     text-align: center;
 }
 
@@ -64,7 +70,7 @@
     width: 180px;
     position: absolute;
     left: 50%;
-    top: 80%;
+    top: 100%;
     transform: translate(-50%, 25px);
     font-weight: 700;
 }

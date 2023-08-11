@@ -4,7 +4,6 @@ import { BsBookmarkStar} from "react-icons/bs"
 import { BsInfoCircle } from "react-icons/bs"
 import { GrClose } from "react-icons/gr"
 import { addFavoriteAirport, deleteFavoriteAirport, fetchFavoriteAirportSingle, } from "../../../DataAccess"
-import { useRef } from "react"
 
 export const AirportFavorite = ({airportId}) => {
 
@@ -72,7 +71,7 @@ export const AirportFavorite = ({airportId}) => {
                 <div className={favoriteModalMessage === "" ? "modal__invisible" : "modal__deleted"}>
                     <div className="icon__container">
                         <BsInfoCircle /> 
-                        <button onClick={(e) => {handleModalClose(e)}}><GrClose className="icon__x"/></button>
+                        <button className="icon__x" onClick={(e) => {handleModalClose(e)}}><GrClose/></button>
                     </div>
                     {favoriteModalMessage}
                 </div> 
@@ -85,7 +84,7 @@ export const AirportFavorite = ({airportId}) => {
                 <div className={favoriteModalMessage === "" ? "modal__invisible" : "modal__added"}>
                     <div className="icon__container">
                         <BsInfoCircle /> 
-                        <button onClick={(e) => {handleModalClose(e)}}><GrClose className="icon__x"/></button>
+                        <button className="icon__x" onClick={(e) => {handleModalClose(e)}}><GrClose/></button>
                     </div>
                     {favoriteModalMessage}
                 </div>    

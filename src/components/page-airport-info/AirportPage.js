@@ -34,11 +34,13 @@ export const AirportPage = () => {
                 <AirportWeather airportId={airportId} />
             </div>
             <div className="freqsRunwaysNotams" ref={info}>
-                <div className="freqsRunwaysContainer">
+                <div className="dataContainer frequencies">
                     <AirportFrequencies airportId={airportId}/>
-                    <AirportRunways airportId={airportId}/>
                 </div>
-                <AirportNotams airportId={airportId}/>
+                <div className="dataContainer runwaysNotams">
+                    <AirportRunways airportId={airportId}/>
+                    <AirportNotams airportId={airportId}/>
+                </div>
             </div>
             <div className="airportDocs" ref={docs}>
                 <AirportChartSupplement airportId={airportId}/>
