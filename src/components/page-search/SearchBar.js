@@ -20,10 +20,12 @@ export const SearchBar = ({ setResults, searchBarText, selection }) => {
         fetchSearchSuggestions()
             .then((data) => {
                 // console.log(data)
+                const lowercaseValue = value.toLowerCase()
                 const results = data.filter((airport) => {
-                    return (value.length >= 3 && airport.ARPT_ID && airport.ARPT_ID.toLowerCase().includes(value)) 
-                        || (value.length >= 3 && airport.ARPT_NAME && airport.ARPT_NAME.toLowerCase().includes(value))
+                    return (lowercaseValue.length >= 3 && airport.ARPT_ID && airport.ARPT_ID.toLowerCase().includes(lowercaseValue)) 
+                        || (lowercaseValue.length >= 3 && airport.ARPT_NAME && airport.ARPT_NAME.toLowerCase().includes(lowercaseValue))
                 })
+                console.log(results)
                 setResults(results)
             }
     )}
