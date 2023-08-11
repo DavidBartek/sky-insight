@@ -1,44 +1,100 @@
-/* .App {
-  text-align: center;
+/* apply css styling to large component blocks. e.g., to "Airport Comments" */
+
+/* Meyer Reset */
+.form-group, .form__link, html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.airportPage {
+  position: relative;
+  background-color: #e5c2a9;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* .floatingHeader {
+  position: fixed;
+  top: 4%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  opacity: 0.95;
+  z-index: 3;
+  width: 25%;
+  min-width: 47px;
+  color: #273439;
+  background-color: #c3d1cd;
+  border-radius: 30px 30px 45px 45px;
+  padding: .25em;
+  padding-left: 0;
+  padding-right: 0;
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  font-size: xx-large;
+  box-shadow: 0 0 10px 1px #7c7d84;
 } */
 
-.form-group {
-  border: none;
+.floatingHeader {
+  position: fixed;
+  right: 2%;
+  bottom: 5%;
+  height: 30%;
+  opacity: 0.95;
+  z-index: 3;
+  min-width: 47px;
+  color: #273439;
+  background-color: #fbf9f7;
+  border-radius: 30px;
+  padding: .25em;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: xx-large;
+  box-shadow: 0 0 10px 1px #7c7d84;
 }
 
-/* apply css styling to large component blocks. e.g., to "Airport Comments" */
+.floatingHeader__icon {
+  transition: .25s;
+}
+
+.floatingHeader__icon:hover {
+  background-color: #cbcbcb;
+  padding: .2em;
+  border-radius: 100%;
+}
+
+.headerAndMaps,
+.weather,
+.freqsRunwaysNotams,
+.airportDocs {
+  height: 100vh;
+}
+
+.freqsRunwaysNotams {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.airportDocs {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  /* padding-top: -8rem; */
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}

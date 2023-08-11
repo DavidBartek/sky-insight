@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { fetchAirportInfo } from "../../../DataAccess"
 import { SectionalView } from "./SectionalView"
 import { GoogleView } from "./GoogleView"
+import "./AirportMaps.css"
 
 export const AirportMaps = ({airportId}) => {
 
@@ -49,7 +50,7 @@ export const AirportMaps = ({airportId}) => {
     if (!latitudeSecs || !longitudeSecs) {
         return (
             <div className="airport__map">
-                <div>Map not available</div>
+                <div></div>
             </div>
         )
     } else if (mapView === "sectional") {

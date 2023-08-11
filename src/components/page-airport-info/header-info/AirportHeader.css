@@ -1,0 +1,153 @@
+.loadingGraphic {
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.airport__header {
+    text-align: center;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+    background-color: #ecdac9;
+}
+
+.title__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header__name {
+    margin: 0;
+    margin-top: .75em;
+    padding: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #e38260;
+}
+
+.idFav__container {
+    display: flex;
+    justify-content: center;
+}
+
+.header__id {
+    margin: 0;
+    padding: 0;
+    margin-top: -2.5rem;
+    margin-bottom: -1rem;
+    font-size: 160px;
+    font-weight: 900;
+    color: #e38260;
+}
+
+.header__favorite {
+    display: flex;
+    align-items: flex-start;
+}
+
+.favorite__button--add,
+.favorite__button--remove {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 50px;
+    color: #dbac1c;
+}
+
+.favorite__button--add:hover {
+    color: #a27f15;
+    cursor: cell;
+}
+
+.favorite__button--remove:hover {
+    color: #a27f15;
+}
+
+.modal__invisible {
+    visibility: hidden;
+    display: none;
+}
+
+.modal__added,
+.modal__deleted {
+    display: block;
+    position: absolute;
+    left: 60%;
+    top: 20%;
+    width: 20%;
+    align-items: center;
+    text-align: center;
+    background-color: #fff7ef;
+    border-radius: 5px;
+    box-shadow: 2px 2px 6px #273439;
+    padding: 1em;
+    animation: fadeIn .25s ease-in-out;
+}
+
+.icon__container {
+    display: flex;
+    /* border: 1px black solid; */
+    justify-content: space-between;
+    align-items: center;
+    font-size: x-large;
+}
+
+.icon__x {
+    align-self: center;
+    /* border: 1px solid black; */
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.icon__x:hover {
+    background-color: #a5a6af;
+    border-radius: 5px;
+}
+
+.header__infoBar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: #c3d1cd;
+    color: #273439;
+}
+
+.infoBar__container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    flex-basis: 0;
+}
+
+.infoBar__data--header {
+    font-weight: bold;
+    /* font-family: "Futura LT"; */
+    font-family: "Poppins";
+}
+
+.infoBar__data {
+    transition: .25s;
+    /* font-family: "Futura LT"; */
+    font-family: "Poppins";
+}
+
+.infoBar__data:hover {
+    text-shadow: 0 0 0.5px black;
+}
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

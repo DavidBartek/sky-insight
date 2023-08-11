@@ -1,0 +1,76 @@
+.navbar {
+    margin: 0;
+    padding: .5em;
+    display: flex;
+    justify-content: space-between;
+    background-color: #e39776;
+    color: #273439;
+}
+
+.navbar__logoContainer {
+    max-width: 15%;
+}
+
+.navbar__logo {
+    width: 98%;
+    transition: .25s;
+}
+.navbar__logo:hover {
+    width: 100%;
+}
+
+.navbar__hamburger--closed,
+.navbar__hamburger--open {
+    position: relative;
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: xx-large;
+    transition: .25s;
+    background: transparent;
+    border: none;
+}
+
+.navbar__hamburger--closed {
+    color: #ecdac9;
+}
+
+.navbar__hamburger--closed:hover {
+    color: #e5c2a9;
+}
+
+.navbar__hamburger--open {
+    color: #273439;
+}
+
+.navbar__links {
+    display: block;
+    position: absolute;
+    top: 6%;
+    right: 1.5%;
+    z-index: 1;
+    width: 8%;
+    min-width: 125px;
+    background-color: #fbf9f7;
+    color: #273439;
+    font-size: larger;
+    box-shadow: 3px 3px 6px #273439;
+    padding: .5rem;
+    border-radius: 5px;
+    animation: fadeIn .25s ease-in-out
+}
+
+.navbar__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: .5rem;
+    padding-right: .75rem;
+    text-decoration: none;
+    color: #273439;
+}
+
+.navbar__link:hover {
+    background-color: #e39776;
+}

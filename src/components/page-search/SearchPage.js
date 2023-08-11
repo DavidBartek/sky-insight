@@ -10,10 +10,10 @@ export const SearchPage = () => {
     const [searchBarText, setSearchBarText] = useState("")
     
     return (
-    <>
+    <div className="searchPage">
         <div className="searchPage__title">
-            <h1 className="searchPage__title--header">SkyInsight</h1>
-            <h2 className="searchPage__title--subheader">The one-stop pre-flight planning resource</h2>
+            <img className="searchPage__title--header" src="SkyInsight_e38260.svg"></img>
+            <div className="searchPage__title--subheader">The one-stop pre-flight planning resource</div>
         </div>
         <div className="search__bar">
             <SearchBar 
@@ -26,6 +26,6 @@ export const SearchPage = () => {
                 setSelection={ setSelection } 
                 setResults={ setResults }/>
         </div>
-    </>
+    </div>
     )
 }

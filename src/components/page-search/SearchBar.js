@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from 'react-router-dom'
 import { FaSearch } from "react-icons/fa"
 import { SearchButton } from "./SearchButton"
 import { fetchSearchSuggestions } from "../../DataAccess"
@@ -33,13 +34,15 @@ export const SearchBar = ({ setResults, searchBarText, selection }) => {
     }
 
     return (
-    <div className="searchBar__wrapper">
-        <FaSearch className="searchBar__input--icon"/>
-        <input className="searchBar__input" 
-            placeholder='Search by airport name or ID (e.g. BNA)'
-            value={searchBarText || input}
-            onChange={(e) => handleChange(e.target.value)}/>
+    <>
+        <div className="searchBar__wrapper">
+            <FaSearch className="searchBar__input--icon"/>
+            <input className="searchBar__input"
+                placeholder='Search by airport name or ID (e.g. BNA)'
+                value={searchBarText || input}
+                onChange={(e) => handleChange(e.target.value)}/>
+        </div>
         <SearchButton selection={selection}/>
-    </div>
+    </>
     )
 }

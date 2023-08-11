@@ -1,21 +1,69 @@
-import { Link, useNavigate } from "react-router-dom"
+import { BiMenu } from "react-icons/bi"
+import "./NavBar.css"
+import { useState } from "react"
+import { NavBarHamburger } from "./NavBarHamburger"
+import { useRef } from "react"
+import { useEffect } from "react"
+import { Link, useParams } from "react-router-dom"
 
 export const NavBar = () => {
-    const navigate = useNavigate()
-    return (
-        <ul className="navbar">
-            <li className="navbar__item navbar__search">
-                <Link className="navbar__link" to="/search">Search</Link>
-            </li>
-            <li className="navbar__item navbar__profile">
-                <Link className="navbar__link" to="/profile">Profile</Link>
-            </li>
-            <li className="navbar__item navbar__logout">
-                <Link className="navbar__link" to="" onClick={() => {
-                    localStorage.removeItem("skyinsight_user")
-                    navigate("/", {replace: true})
-                }}>Logout</Link>
-            </li>
-        </ul>
+    
+    const [hamburgerOpen, setHamburgerOpen] = useState(false)
+    const targetRef = useRef(null)
+
+    const params = useParams()
+    const searchPageChecker = params["*"]
+    
+    useEffect(
+        () => {
+            const handleClickOutside = (e) => {
+                if (targetRef.current && !targetRef.current.contains(e.target)) {
+                    setHamburgerOpen(false)
+                }
+            }
+
+            document.addEventListener('click', handleClickOutside)
+
+            return () => {
+                document.removeEventListener('click', handleClickOutside)
+            }
+        }, []
     )
+
+    const handleHamburgerOpen = (e) => {
+        e.preventDefault()
+        setHamburgerOpen(true)
+    }
+
+    const handleHamburgerClosed = (e) => {
+        e.preventDefault()
+        setHamburgerOpen(false)
+    }
+
+    if (hamburgerOpen === false) {
+        return (
+            <div className="navbar">
+                {searchPageChecker === "search" ? <div className="navbar__logoContainer"></div> : 
+                <div className="navbar__logoContainer">
+                    <Link to="/search">
+                        <img className="navbar__logo" src="/SkyInsight_ecdac9.svg"></img>
+                    </Link>
+                </div> }
+                <button className="navbar__hamburger--closed" onClick={(e) => handleHamburgerOpen(e)}><BiMenu /></button>
+            </div>
+        )
+    } else {
+        return (
+            <div className="navbar">
+                {searchPageChecker === "search" ? <div className="navbar__logoContainer"></div> : 
+                <div className="navbar__logoContainer">
+                    <Link to="/search">
+                        <img className="navbar__logo" src="/SkyInsight_ecdac9.svg"></img>
+                    </Link>
+                </div> }
+                <button className="navbar__hamburger--open" ref={targetRef} onClick={(e) => handleHamburgerClosed(e)}><BiMenu /></button>
+                <NavBarHamburger setHamburgerOpen={setHamburgerOpen}/>
+            </div>
+        )
+    }
 }

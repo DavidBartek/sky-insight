@@ -1,4 +1,5 @@
 import { ProfileFavorites } from "./ProfileFavorites";
+import "./Profile.css"
 
 export const Profile = () => {
     
@@ -17,15 +18,15 @@ export const Profile = () => {
     }
 
     return (
-        <>
-            <div className="profile__header">
-                <h1>Welcome, {userObject.firstName}.</h1>
-                <h3>Member since {convertDatestamp(userObject.joinDate)}</h3>
+        <div className="profilePage">
+            <div className="profile__headerContainer">
+                <div className="profile__heading--main">Welcome, {userObject.firstName}.</div>
+                <div className="profile__subheading">Member since {convertDatestamp(userObject.joinDate)}</div>
             </div>
             <div className="profile__favorites">
-                <h1 className="favorites__header">Favorite Airports</h1>
+                <div className="profile__heading--favorites">Favorite Airports</div>
                 <ProfileFavorites userObject={userObject}/>
             </div>
-        </>
+        </div>
     )
 }

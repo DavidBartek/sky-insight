@@ -1,9 +1,12 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { BiUser, BiEnvelope, BiLock } from "react-icons/bi"
+import { PiUsersThreeBold } from "react-icons/pi"
 
 export const Register = () => {
     const [user, setUser] = useState({
         email: "",
+        password: "",
         firstName: "",
         lastName: "",
         joinDate: ""
@@ -28,7 +31,7 @@ export const Register = () => {
                         joinDate: createdUser.joinDate
                     }))
 
-                    navigate("/")
+                    navigate("/search")
                 }
             })
     }
@@ -69,31 +72,72 @@ export const Register = () => {
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for SkyInsight</h1>
-                <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
-                    <input onChange={updateUser}
-                           type="text" id="firstName" className="form-control"
-                           placeholder="Enter first name" required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
-                    <input onChange={updateUser}
-                           type="text" id="lastName" className="form-control"
-                           placeholder="Enter your name" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="email"> Email address </label>
-                    <input onChange={updateUser}
-                        type="email" id="email" className="form-control"
-                        placeholder="Email address" required />
-                </fieldset>
-                <fieldset>
-                    <button type="submit"> Register </button>
-                </fieldset>
-            </form>
+        <main>
+            <div className="background__container"></div>
+            <div className="login__container register">
+                <section>
+                    <form className="login__form" onSubmit={handleRegister}>
+                        <img className="login__logo" src="/SkyInsight_e38260.svg"></img>
+                        <h1 className="register__header">Please register to use SkyInsight</h1>
+                        <fieldset className="form__group">
+                            <label className="form__subhead" htmlFor="firstName"> First Name </label>
+                            <div className="input__wrapper">
+                                <BiUser className="input__icon"/>
+                                <input type="text"
+                                    onChange={updateUser}
+                                    id="firstName"
+                                    className="input__form" 
+                                    placeholder="Enter first name" 
+                                    required autoFocus />
+                            </div>
+                        </fieldset>
+                        <fieldset className="form__group">
+                            <label className="form__subhead" htmlFor="lastName"> Last Name </label>
+                            <div className="input__wrapper">
+                                <PiUsersThreeBold className="input__icon"/>
+                                <input type="text"
+                                    onChange={updateUser}
+                                    id="lastName"
+                                    className="input__form"
+                                    placeholder="Enter last name" 
+                                    required />
+                            </div>
+                        </fieldset>
+                        <fieldset className="form__group">
+                            <label className="form__subhead" htmlFor="email"> Email address </label>
+                            <div className="input__wrapper">
+                                <BiEnvelope className="input__icon"/>
+                                <input type="email" 
+                                    onChange={updateUser}
+                                    id="email"
+                                    className="input__form"
+                                    placeholder="Email address"
+                                    required />
+                            </div>
+                        </fieldset>
+                        <fieldset className="form__group">
+                            <label className="form__subhead" htmlFor="password"> Password </label>
+                            <div className="input__wrapper">
+                                <BiLock className="input__icon"/>
+                                <input type="password"
+                                    onChange={updateUser}
+                                    id="password"
+                                    className="input__form"
+                                    placeholder="Password"
+                                    required />
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <button className="form__button" type="submit">
+                                REGISTER
+                            </button>
+                        </fieldset>
+                    </form>
+                </section>
+                <section className="form__linkContainer">
+                    <Link className="form__link" to="/login">Go back</Link>
+                </section>
+            </div>
         </main>
     )
 }
