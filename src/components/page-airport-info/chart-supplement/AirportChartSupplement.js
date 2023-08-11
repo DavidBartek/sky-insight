@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { fetchChartSupplement } from "../../../DataAccess"
+import "./AirportChartSupplementAirportDiagram.css"
 
 export const AirportChartSupplement = ({airportId}) => {
     
@@ -30,7 +31,6 @@ export const AirportChartSupplement = ({airportId}) => {
                 className="chartSupplement__pdf"
                 data={chartSupplement}
                 type="application/pdf"
-                style={{width: '450px', height: '710px', frameborder: '0'}}
             />
         </div>
     )

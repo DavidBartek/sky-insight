@@ -1,0 +1,21 @@
+.airport__chartSupplement,
+.airport__airportDiagram {
+    margin-top: -3rem;
+}
+
+.chartSupplement__header,
+.airportDiagram__header {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.chartSupplement__pdf,
+.airportDiagram__pdf {
+    width: 450px;
+    height: fit-content;
+    height: 710px;
+}
+
+.airportDiagram__pdf {
+    height: 720px;
+}

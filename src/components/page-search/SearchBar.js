@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from 'react-router-dom'
 import { FaSearch } from "react-icons/fa"
 import { SearchButton } from "./SearchButton"
 import { fetchSearchSuggestions } from "../../DataAccess"

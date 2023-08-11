@@ -30,7 +30,6 @@ export const AirportDiagram = ({airportId}) => {
                     className="airportDiagram__pdf"
                     data={airportDiagram}
                     type="application/pdf"
-                    style={{width: '300px', height: '490px', frameborder: '0'}}
                 />
         </div>
     )

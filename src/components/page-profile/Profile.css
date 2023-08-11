@@ -123,6 +123,8 @@
     box-shadow: 0 0 5px #273439;
     color: #273439;
     padding: .75rem;
+    border: none;
+    font-size: large;
     border-radius: 50%;
     z-index: 4;
     transition: .25s;
@@ -171,6 +173,7 @@
     font-size: large;
     color: #fbf9f7;
     padding: .5rem;
+    border: none;
     border-radius: 50%;
     transition: .25s;
 }
