@@ -19,7 +19,8 @@ export const SearchPage = () => {
             <SearchBar 
                 setResults={ setResults } 
                 searchBarText={ searchBarText }
-                selection={ selection } />
+                selection={ selection } 
+                results={results}/>
             <SearchResultsList 
                 results={ results } 
                 setSearchBarText={ setSearchBarText } 
