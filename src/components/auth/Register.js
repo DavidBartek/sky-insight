@@ -74,7 +74,7 @@ export const Register = () => {
     return (
         <main>
             <div className="background__container"></div>
-            <div className="login__container">
+            <div className="login__container register">
                 <section>
                     <form className="login__form" onSubmit={handleRegister}>
                         <img className="login__logo" src="/SkyInsight_e38260.svg"></img>
@@ -134,8 +134,8 @@ export const Register = () => {
                         </fieldset>
                     </form>
                 </section>
-                <section className="form__link">
-                    <Link to="/login">Go back</Link>
+                <section className="form__linkContainer">
+                    <Link className="form__link" to="/login">Go back</Link>
                 </section>
             </div>
         </main>

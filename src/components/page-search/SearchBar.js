@@ -33,14 +33,15 @@ export const SearchBar = ({ setResults, searchBarText, selection }) => {
     }
 
     return (
-    <div className="searchBar__wrapper">
-        <FaSearch className="searchBar__input--icon"/>
-        <input className="searchBar__input" 
-            tabIndex={0}
-            placeholder='Search by airport name or ID (e.g. BNA)'
-            value={searchBarText || input}
-            onChange={(e) => handleChange(e.target.value)}/>
-        <SearchButton tabIndex={1} selection={selection}/>
-    </div>
+    <>
+        <div className="searchBar__wrapper">
+            <FaSearch className="searchBar__input--icon"/>
+            <input className="searchBar__input"
+                placeholder='Search by airport name or ID (e.g. BNA)'
+                value={searchBarText || input}
+                onChange={(e) => handleChange(e.target.value)}/>
+        </div>
+        <SearchButton selection={selection}/>
+    </>
     )
 }

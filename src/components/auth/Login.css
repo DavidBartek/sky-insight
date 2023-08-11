@@ -33,7 +33,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 25%;
+    width: 20%;
     height: 50%;
     min-width: 400px;
     background: #fbf9f7c4;
@@ -51,9 +51,14 @@
     animation: fadeIn 1s ease-in-out;
 }
 
+.login__container.register {
+    height: 60%;
+}
+
 .login__logo {
     padding-bottom: 2rem;
     width: 100%;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .form__group {
@@ -65,6 +70,7 @@
 
 .form__subhead {
     align-self: flex-start;
+    margin-bottom: 5px;
 }
 
 .input__wrapper {
@@ -87,6 +93,7 @@
     background-color: transparent;
     border: none;
     margin-left: 5px;
+    font-size: 18px;
 }
 
 .input__form:focus {
@@ -107,8 +114,13 @@
     background-color: #d9785a;
 }
 
-.form__link {
+.form__linkContainer {
     margin-top: 1.5rem;
+}
+
+.form__link {
+    color: #e38260;
+    text-decoration: none;
 }
 
 .form__link:hover {

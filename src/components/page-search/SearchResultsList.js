@@ -13,7 +13,11 @@ export const SearchResultsList = ({results, setSearchBarText, setSelection, setR
         <div className="searchBar__results">
             {
                 results.map((result, id) => {
-                    return <div className="searchBar__result" key={id} onClick={() => handleResultSelect(result)}>
+                    return <div 
+                        className="searchBar__result"
+                        key={id} 
+                        tabIndex={0} 
+                        onClick={() => handleResultSelect(result)}>
                         {result.ARPT_NAME} ({result.ARPT_ID})
                     </div>
                 })

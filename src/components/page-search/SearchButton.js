@@ -12,8 +12,9 @@ export const SearchButton = ({selection}) => {
     }
     
     return (
-        <button className="searchBar__button" onClick={handleSearch}>
-            <MdFlightTakeoff className="searchBar__button--icon"/>
+        <button className="searchBar__button" tabIndex={0} onClick={handleSearch}>
+            {/* <MdFlightTakeoff className="searchBar__button--icon"/> */}
+            go
         </button>
     )
 }

@@ -76,8 +76,8 @@ export const Login = () => {
                         </fieldset>
                     </form>
                 </section>
-                <section className="form__link"> 
-                    <Link to="/register">Sign Up</Link>
+                <section className="form__linkContainer"> 
+                    <Link className="form__link" to="/register">Sign Up</Link>
                 </section>
             </div>
         </main>
