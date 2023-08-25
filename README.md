@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# SkyInsight
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**SkyInsight** is a one-stop pre-flight planning resource and hangout for general aviation pilots, providing information required by 14 CFR 91.103 for any airport in the National Airspace System and creating a hub for pilots to share reviews, stories etc. for airports they have visited.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+**SkyInsight** was written using the React framework, bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It was 100% styled using vanilla CSS (no UI libraries!). It interfaces with data from:
+- [FAA's 28-Day NASR subscription](https://www.faa.gov/air_traffic/flight_info/aeronav/aero_data/NASR_Subscription/), some of which has made conveniently available through the [aeroinfo](https://github.com/kdknigga/aeroinfo) API
+- [Aviation Weather Center](https://beta.aviationweather.gov/data/api/)
+- [VFRMap](https://vfrmap.com/)
+- [Google Maps API](https://developers.google.com/maps/documentation/javascript)
+- A locally-hosted "dummy server" using [JSON Server](https://www.npmjs.com/package/json-server) which accepts full CRUD operations
 
-### `npm start`
+Developed using VSCode, GitHub, and Postman API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**SkyInsight** requires the [Node.js](https://nodejs.org/en) runtime environment to be installed.
 
-### `npm test`
+**SkyInsight** requires two local servers to run:
+- [SkyInsight JSON-Server API](https://github.com/DavidBartek/sky-insight-api) - database containing airport information, frequencies, and documents for limited airports (current for cycle ending 8/10/23), as well as user information, using [JSON-server](https://github.com/typicode/json-server).
+    - Install JSON Server from link above.
+    - Navigate in your browser to the [repo](https://github.com/DavidBartek/sky-insight-api).
+    - In your terminal, run `git clone` + repo's SSH to download.
+    - Once in the database directory, run in terminal: `json-server database.json -p 8088 -w` (to quit: `Ctrl + C`)
+- [SkyInsight Node Express Server](https://github.com/DavidBartek/sky-insight-express) - a necessary workaround to interface with external web APIs which have not/have not correctly configured their CORS headers, using [Node Express](https://expressjs.com/en/starter/installing.html).
+    - Navigate in your browser to the [repo](https://github.com/DavidBartek/sky-insight-express)
+    - In your terminal, run `git clone` + repo's SSH to download.
+    - Once in the app directory, follow [Node Express's installation directions](https://expressjs.com/en/starter/installing.html).
+    - Run in terminal: `node app.js` (to quit: `Ctrl + C`)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Once the above is up and running, SkyInsight is ready to rock!**
+- In your terminal, run `git clone` + this repo's SSH while in your target directory.
+- Once inside the **SkyInsight** directory, run `npm start` (to quit: `Ctrl + C`). **SkyInsight** will automatically open in your default browser.
 
-### `npm run build`
+## Some Important Notes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Secret Key
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A Google Maps API key has been omitted from this repository. For embedded Google Maps to work properly:
+- obtain a private API key [here](https://developers.google.com/maps/documentation/javascript/get-api-key)
+- create a JS file in the `src` directory named `GoogleAPIKey.js`
+- In `GoogleAPIKey.js`, copy + paste: `export const googleAPIKey = "YourAPIKeyHere"`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### For the demonstrational purposes of this app, not all information is currently up to date.
+Information which is up to date:
+- Basic airport information (ownership, location, etc.)
+- Current METARs and TAFs
 
-### `npm run eject`
+Information which is NOT up to date:
+- Frequency data
+- Runway data
+- Chart Supplement and Airport Diagram, if available
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### The following airports have an embedded Chart Supplement 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Finally,
+**SkyInsight** is for demonstration purposes only, and is not to be used for navigation.
