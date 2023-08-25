@@ -51,7 +51,5 @@ Information which is NOT up to date:
 - Frequency data
 - Chart Supplement and Airport Diagram, if available
 
-### The following airports have an embedded Chart Supplement 
-
-### Finally,
-**SkyInsight** is for demonstration purposes only, and is not to be used for navigation.
+### Finally...
+**SkyInsight** is for demonstration purposes only, and is not to be used for navigation. Go use a proper EFB :)
