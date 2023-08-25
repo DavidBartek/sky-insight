@@ -15,7 +15,7 @@ Developed using VSCode, GitHub, JSON-Server, Node Express, Create React App, and
 
 ## Install
 
-**SkyInsight** requires the [Node.js](https://nodejs.org/en) runtime environment to be installed.
+**SkyInsight** requires the [Node.js](https://nodejs.org/en) runtime environment. Follow their instructions for install.
 
 **SkyInsight** requires two local servers to run:
 - [SkyInsight JSON-Server API](https://github.com/DavidBartek/sky-insight-api) - database containing airport information, frequencies, and documents for limited airports (current for cycle ending 8/10/23), as well as user information, using [JSON-server](https://github.com/typicode/json-server).
