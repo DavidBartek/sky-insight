@@ -11,7 +11,7 @@
 - [Google Maps API](https://developers.google.com/maps/documentation/javascript)
 - A locally-hosted "dummy server" using [JSON Server](https://www.npmjs.com/package/json-server) which accepts full CRUD operations
 
-Developed using VSCode, GitHub, and Postman API.
+Developed using VSCode, GitHub, JSON-Server, Node Express, Create React App, and Postman API.
 
 ## Install
 
