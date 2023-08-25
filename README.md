@@ -44,12 +44,11 @@ A Google Maps API key has been omitted from this repository. For embedded Google
 
 ### For the demonstrational purposes of this app, not all information is currently up to date.
 Information which is up to date:
-- Basic airport information (ownership, location, etc.)
+- Basic airport information (ownership, location, runways, etc.)
 - Current METARs and TAFs
 
 Information which is NOT up to date:
 - Frequency data
-- Runway data
 - Chart Supplement and Airport Diagram, if available
 
 ### The following airports have an embedded Chart Supplement 
