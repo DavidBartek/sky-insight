@@ -15,7 +15,7 @@ export const Login = () => {
 
         fetchLogin(email)
             .then((foundUsers) => {
-                console.log(foundUsers)
+                // console.log(foundUsers)
                 if (foundUsers.length === 1) {
                     const user = foundUsers[0]
                     if (user.password === password) {
