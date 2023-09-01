@@ -91,6 +91,7 @@ export const fetchFrequencies = (airportId) => {
 // Airport Diagrams - fetches current cycle (7/13/23) from local json-server
 // only a sample database: // sample list: "KBNA", "KXNX", "KJWN", "M54", "KMQY", "KJFK", "KDFW", "KDEN", "KAPA", "KBJC", "KASE", "KBDU", "KCFO", "KSRB", "KSYI"
 // < Class D airports have empty string for url
+// the links will deprecate after they expire (next: Oct 5). Parent URL: https://aeronav.faa.gov/d-tpp/
 
 export const fetchAirportDiagram = (airportId) => {
     return fetch(`${localAPI}/airportDiagramsSample?faaId=${airportId}`)
@@ -106,6 +107,7 @@ export const fetchAirportDiagram = (airportId) => {
 
 // Chart Supplements - fetches current cycle (6/15/23) from local json-server
 // only a sample database: // sample list: "KBNA", "KXNX", "KJWN", "M54", "KMQY", "KJFK", "KDFW", "KDEN", "KAPA", "KBJC", "KASE", "KBDU", "KCFO", "KSRB", "KSYI"
+// the links will deprecate after they expire (next: Oct 30). Parent URL: https://aeronav.faa.gov/afd/
 
 export const fetchChartSupplement = (airportId) => {
     return fetch(`${localAPI}/chartSupplementsSample?faaId=${airportId}`)
