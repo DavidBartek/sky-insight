@@ -7,8 +7,8 @@
 **SkyInsight** was written using the React framework, bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It was 100% styled using vanilla CSS (no UI libraries!). It interfaces with data from:
 - [FAA's 28-Day NASR subscription](https://www.faa.gov/air_traffic/flight_info/aeronav/aero_data/NASR_Subscription/), some of which has made conveniently available through the [aeroinfo](https://github.com/kdknigga/aeroinfo) API
 - [Aviation Weather Center](https://beta.aviationweather.gov/data/api/)
-- [VFRMap](https://vfrmap.com/)
 - [Google Maps API](https://developers.google.com/maps/documentation/javascript)
+- [VFRMap](https://vfrmap.com/)
 - A locally-hosted "dummy server" using [JSON Server](https://www.npmjs.com/package/json-server) which accepts full CRUD operations
 
 Developed using VSCode, GitHub, JSON-Server, Node Express, Create React App, and Postman API.
