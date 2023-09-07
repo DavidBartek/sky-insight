@@ -23,7 +23,7 @@ Developed using VSCode, GitHub, JSON-Server, Node Express, Create React App, and
     - Navigate in your browser to the [repo](https://github.com/DavidBartek/sky-insight-api).
     - In your terminal, run `git clone` + repo's SSH to download.
     - Once in the database directory, run in terminal: `json-server database.json -p 8088 -w` (to quit: `Ctrl + C`)
-- [SkyInsight Node Express Server](https://github.com/DavidBartek/sky-insight-express) - a custom-built Node Express API built to interface with SkyInsight's many external datasets (and a necessary workaround to work with providers which have not correctly configured CORS), using [Node Express](https://expressjs.com/en/starter/installing.html).
+- [SkyInsight Node Express API](https://github.com/DavidBartek/sky-insight-express) - a custom-built Node Express API built to interface with SkyInsight's many external datasets (and a necessary workaround to work with providers which have not correctly configured CORS), using [Node Express](https://expressjs.com/en/starter/installing.html).
     - Navigate in your browser to the [repo](https://github.com/DavidBartek/sky-insight-express)
     - In your terminal, run `git clone` + repo's SSH to download.
     - Once in the app directory, follow [Node Express's installation directions](https://expressjs.com/en/starter/installing.html).
