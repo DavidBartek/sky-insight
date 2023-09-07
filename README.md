@@ -53,3 +53,7 @@ Information which is NOT up to date:
 
 ### Finally...
 **SkyInsight** is for demonstration purposes only, and is not to be used for navigation. Go use a proper EFB :)
+
+## Wireframe
+
+![SkyInsight Wireframe](SkyInsight_Wireframe.png)
