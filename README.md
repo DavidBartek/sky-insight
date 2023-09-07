@@ -4,7 +4,7 @@
 
 ## Tech Stack
 
-**SkyInsight** was written using the React framework, bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It was 100% styled using vanilla CSS (no UI libraries!). It interfaces with data from:
+**SkyInsight** was written using the React framework, bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It was 100% styled using vanilla CSS (no UI libraries!). Using a custom-built light Node Express API, SkyInsight interfaces with data from:
 - [FAA's 28-Day NASR subscription](https://www.faa.gov/air_traffic/flight_info/aeronav/aero_data/NASR_Subscription/), some of which has made conveniently available through the [aeroinfo](https://github.com/kdknigga/aeroinfo) API
 - [Aviation Weather Center](https://beta.aviationweather.gov/data/api/)
 - [Google Maps API](https://developers.google.com/maps/documentation/javascript)
@@ -18,12 +18,12 @@ Developed using VSCode, GitHub, JSON-Server, Node Express, Create React App, and
 **SkyInsight** requires the [Node.js](https://nodejs.org/en) runtime environment. Follow their instructions for install.
 
 **SkyInsight** requires two local servers to run:
-- [SkyInsight JSON-Server API](https://github.com/DavidBartek/sky-insight-api) - database containing airport information, frequencies, and documents for limited airports (current for cycle ending 8/10/23), as well as user information, using [JSON-server](https://github.com/typicode/json-server).
+- [SkyInsight JSON-Server](https://github.com/DavidBartek/sky-insight-server) - database containing airport information, frequencies, and Chart Supplements & Airport Diagrams for limited airports (for cycle ending 10/5/23), as well as user information, using [JSON-server](https://github.com/typicode/json-server). (Just a heads up, it's a big database!)
     - Install JSON Server from link above.
     - Navigate in your browser to the [repo](https://github.com/DavidBartek/sky-insight-api).
     - In your terminal, run `git clone` + repo's SSH to download.
     - Once in the database directory, run in terminal: `json-server database.json -p 8088 -w` (to quit: `Ctrl + C`)
-- [SkyInsight Node Express Server](https://github.com/DavidBartek/sky-insight-express) - a necessary workaround to interface with external web APIs which have not/have not correctly configured their CORS headers, using [Node Express](https://expressjs.com/en/starter/installing.html).
+- [SkyInsight Node Express Server](https://github.com/DavidBartek/sky-insight-express) - a custom-built Node Express API built to interface with SkyInsight's many external datasets (and a necessary workaround to work with providers which have not correctly configured CORS), using [Node Express](https://expressjs.com/en/starter/installing.html).
     - Navigate in your browser to the [repo](https://github.com/DavidBartek/sky-insight-express)
     - In your terminal, run `git clone` + repo's SSH to download.
     - Once in the app directory, follow [Node Express's installation directions](https://expressjs.com/en/starter/installing.html).
@@ -35,7 +35,7 @@ Developed using VSCode, GitHub, JSON-Server, Node Express, Create React App, and
 
 ## Some Important Notes
 
-### Secret Key
+### Secret Key for Google Maps
 
 A Google Maps API key has been omitted from this repository. For embedded Google Maps to work properly:
 - obtain a private API key [here](https://developers.google.com/maps/documentation/javascript/get-api-key)
