@@ -20,7 +20,7 @@ Developed using VSCode, GitHub, JSON-Server, Node Express, Create React App, and
 **SkyInsight** requires two local servers to run:
 - [SkyInsight JSON-Server](https://github.com/DavidBartek/sky-insight-server) - database containing airport information, frequencies, and Chart Supplements & Airport Diagrams for limited airports (for cycle ending 10/5/23), as well as user information, using [JSON-server](https://github.com/typicode/json-server). (Just a heads up, it's a big database!)
     - Install JSON Server from link above.
-    - Navigate in your browser to the [repo](https://github.com/DavidBartek/sky-insight-api).
+    - Navigate in your browser to the [repo](https://github.com/DavidBartek/sky-insight-server).
     - In your terminal, run `git clone` + repo's SSH to download.
     - Once in the database directory, run in terminal: `json-server database.json -p 8088 -w` (to quit: `Ctrl + C`)
 - [SkyInsight Node Express API](https://github.com/DavidBartek/sky-insight-express) - a custom-built Node Express API for interfacing with SkyInsight's many external datasets (and a necessary workaround to work with providers which have not correctly configured CORS), using [Node Express](https://expressjs.com/en/starter/installing.html).
