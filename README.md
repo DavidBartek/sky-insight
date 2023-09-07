@@ -1,4 +1,4 @@
-# SkyInsight
+![SkyInsight Logo](SkyInsight_Logo.png)
 
 **SkyInsight** is a one-stop pre-flight planning resource and hangout for general aviation pilots, providing information required by 14 CFR 91.103 for any airport in the National Airspace System and creating a hub for pilots to share reviews, stories etc. for airports they have visited.
 
