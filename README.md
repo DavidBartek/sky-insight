@@ -16,7 +16,7 @@ Developed using VSCode, GitHub, JSON-Server, Node Express, Create React App, and
 ## Demonstration
 
 View a quick demonstration of **SkyInsight** here:
-![SkyInsight Video](https://youtu.be/zN9fD2f_uIM)
+[![SkyInsight Video](SkyInsight_Thumbnail.png)](https://youtu.be/zN9fD2f_uIM)
 
 ## Install
 
