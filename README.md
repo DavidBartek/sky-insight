@@ -13,6 +13,11 @@
 
 Developed using VSCode, GitHub, JSON-Server, Node Express, Create React App, and Postman API.
 
+## Demonstration
+
+View a quick demonstration of **SkyInsight** here:
+![SkyInsight Video](https://youtu.be/zN9fD2f_uIM)
+
 ## Install
 
 **SkyInsight** requires the [Node.js](https://nodejs.org/en) runtime environment. Follow their instructions for install.
