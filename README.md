@@ -23,12 +23,12 @@ View a quick demonstration of **SkyInsight** here:
 **SkyInsight** requires the [Node.js](https://nodejs.org/en) runtime environment. Follow their instructions for install.
 
 **SkyInsight** requires two local servers to run:
-- [SkyInsight JSON-Server](https://github.com/DavidBartek/sky-insight-server) - database containing airport information, frequencies, and Chart Supplements & Airport Diagrams for limited airports (for cycle ending 10/5/23), as well as user information, using [JSON-server](https://github.com/typicode/json-server). (Just a heads up, it's a big database!)
+- [SkyInsight JSON-Server](https://github.com/DavidBartek/sky-insight-server) - database handling persistent data storage for users, as well as select airport information (frequencies, Chart Supplements & Airport Diagrams for limited airports for cycle ending 10/5/23) using [JSON-server](https://github.com/typicode/json-server). (Just a heads up, it's a big database!)
     - Install JSON Server from link above.
     - Navigate in your browser to the [repo](https://github.com/DavidBartek/sky-insight-server).
     - In your terminal, run `git clone` + repo's SSH to download.
     - Once in the database directory, run in terminal: `json-server database.json -p 8088 -w` (to quit: `Ctrl + C`)
-- [SkyInsight Node Express API](https://github.com/DavidBartek/sky-insight-express) - a custom-built Node Express API for interfacing with SkyInsight's many external datasets (and a necessary workaround to work with providers which have not correctly configured CORS), using [Node Express](https://expressjs.com/en/starter/installing.html).
+- [SkyInsight Node Express API](https://github.com/DavidBartek/sky-insight-express) - a custom-built Node Express API for interfacing with SkyInsight's many external datasets, using [Node Express](https://expressjs.com/en/starter/installing.html).
     - Navigate in your browser to the [repo](https://github.com/DavidBartek/sky-insight-express)
     - In your terminal, run `git clone` + repo's SSH to download.
     - Once in the app directory, follow [Node Express's installation directions](https://expressjs.com/en/starter/installing.html).
